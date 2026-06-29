@@ -33,8 +33,14 @@ html,body{height:100%;background:var(--bg);color:var(--ink);font-family:'Inter',
 .dots1{top:14%;right:6%;opacity:.28}
 .plus{width:160px;height:160px;opacity:.16;background-image:linear-gradient(var(--accent) 2px,transparent 2px),linear-gradient(90deg,var(--accent) 2px,transparent 2px);background-size:40px 40px;-webkit-mask-image:radial-gradient(circle,#000,transparent 70%);mask-image:radial-gradient(circle,#000,transparent 70%)}
 .plus1{bottom:12%;left:4%}
-/* smooth 3D tilt return */
-.metric,.buildcard,.skill-pill,.ins,.tcard,.uplevel-card,.fitcard,.glance-card,.vh-pill,.curr-mod,.plan,.reason,.persona,.trapcard,.agenda-item,.newscard,.jd-card,.mind-row{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color 1s}
+/* smooth 3D tilt return + hover micro-interactions */
+.metric,.buildcard,.skill-pill,.ins,.tcard,.uplevel-card,.fitcard,.glance-card,.vh-pill,.curr-card,.plan,.reason,.persona,.trapcard,.agenda-item,.newscard,.jd-card,.mind-row{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color 1s}
+.metric:hover,.buildcard:hover,.skill-pill:hover,.ins:hover,.tcard:hover,.uplevel-card:hover,.fitcard:hover,.glance-card:hover,.vh-pill:hover,.curr-card:hover,.plan:hover,.newscard:hover,.jd-card:hover,.mind-row:hover{box-shadow:0 18px 40px -16px rgba(20,26,44,.32)}
+/* oversized quote callout */
+.quote-callout{position:relative;max-width:30ch;padding-left:14px}
+.quote-mark{position:absolute;top:-.42em;left:-.1em;font-family:Georgia,serif;font-size:clamp(90px,13vw,170px);line-height:1;color:var(--accent);opacity:.14;pointer-events:none;z-index:0}
+.quote-big{position:relative;z-index:1;font-family:'Inter';font-style:italic;font-weight:500;font-size:clamp(26px,3.6vw,46px);line-height:1.25;color:var(--ink)}
+.quote-attr{position:relative;z-index:1;color:var(--muted);font-size:clamp(14px,1.6vw,18px);margin-top:22px;font-weight:500}
 .slide-host.active~*,body:has(.slide-host.active) .design-layer{opacity:0;transition:opacity .3s}
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.18;
   background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);
@@ -269,10 +275,13 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .reflection .rquote{font-size:clamp(16px,1.9vw,22px);line-height:1.45}
 .reflection .rattr{color:var(--muted);font-size:13.5px;margin-top:12px;font-family:'Space Grotesk';font-weight:500}
 .nextsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-.nstep{display:flex;gap:16px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
-.nstep .nn{font-family:'Space Grotesk';font-weight:700;font-size:26px;color:var(--accent);transition:color 1s}
-.nstep .nt{font-family:'Space Grotesk';font-weight:600;font-size:16px;margin-bottom:6px}
-.nstep .nd{color:var(--muted);font-size:13.5px;line-height:1.45;font-weight:500}
+.nextflow{display:flex;align-items:stretch;gap:6px}
+.nextflow .nstep{flex:1;flex-direction:column;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:0 4px 18px -10px rgba(20,26,44,.2);border-top:4px solid var(--accent)}
+.nextflow .nn{width:46px;height:46px;border-radius:13px;background:var(--accent);color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px -4px var(--accent);transition:background 1s}
+.nextflow .nt{font-family:'Space Grotesk';font-weight:700;font-size:clamp(16px,2vw,21px);margin-bottom:6px}
+.nextflow .nd{color:var(--muted);font-size:14px;line-height:1.5;font-weight:500}
+.nstep-conn{display:flex;align-items:center;justify-content:center;flex:0 0 30px}
+.nstep-conn .nchev{font-family:'Space Grotesk';font-size:30px;color:var(--accent);font-weight:700;opacity:.7;transition:color 1s}
 .hostgrid .metric .big{color:var(--ink)}
 /* news */
 .newsgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
@@ -408,11 +417,18 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .mind-q{font-family:'Space Grotesk';font-weight:600;font-size:clamp(15px,1.9vw,20px)}
 .mind-d{color:var(--muted);font-size:13.5px;margin-top:3px;font-weight:500}
 /* curriculum */
-.curr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px}
-.curr-mod{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 2px 14px -8px rgba(20,26,44,.18);display:flex;flex-direction:column}
+.curr-timeline{position:relative}
+.curr-line{position:absolute;top:14px;left:12.5%;right:12.5%;height:3px;background:linear-gradient(90deg,var(--accent-soft),var(--accent),var(--accent-soft));border-radius:3px;transform-origin:left;transform:scaleX(0);opacity:0;transition:transform 1.1s cubic-bezier(.2,.7,.2,1) .3s,opacity .5s .3s}
+.slide.active .curr-line{transform:scaleX(1);opacity:.8}
+.curr-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;position:relative}
+.curr-mod{display:flex;flex-direction:column;align-items:stretch}
+.curr-node{display:flex;justify-content:center;margin-bottom:14px}
+.curr-node-num{width:30px;height:30px;border-radius:50%;background:var(--accent);color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 5px var(--accent-soft),0 4px 12px -4px var(--accent);transition:background 1s,box-shadow 1s;position:relative;z-index:1}
+.curr-card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px;box-shadow:0 2px 14px -8px rgba(20,26,44,.18);display:flex;flex-direction:column;flex:1}
 .curr-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px}
 .curr-wk{font-family:'JetBrains Mono';font-size:12px;color:var(--accent);transition:color 1s;font-weight:500}
-.curr-tag{font-family:'JetBrains Mono';font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line);border-radius:5px;padding:2px 6px}
+.curr-tag{font-family:'JetBrains Mono';font-size:9.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--muted);border:1px solid var(--line);border-radius:20px;padding:3px 9px}
+.curr-tag.live{color:var(--accent);border-color:var(--accent);background:var(--accent-soft);font-weight:600}
 .curr-title{font-family:'Space Grotesk';font-weight:700;font-size:16px;line-height:1.15;margin-bottom:6px}
 .curr-desc{color:var(--muted);font-size:11.5px;line-height:1.4;margin-bottom:10px;font-weight:500}
 .curr-topics li{font-size:12px;line-height:1.35;margin-bottom:3px}
@@ -428,6 +444,17 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .mock-big-label{font-family:'Space Grotesk';font-size:18px;font-weight:500;margin-top:6px;opacity:.95}
 .mock-lead{font-size:clamp(15px,1.8vw,19px);line-height:1.55;margin-bottom:16px;font-weight:500}
 .mock-body ul li{font-size:14.5px;margin-bottom:8px}
+/* dual hero stats */
+.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
+.hero-stat{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 80%,#000));border-radius:22px;padding:30px 32px;color:#fff;box-shadow:0 18px 46px -18px var(--accent);transition:background 1s,transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.hero-stat::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.12);top:-90px;right:-60px}
+.hero-stat .hs-num{font-family:'Space Grotesk';font-weight:700;font-size:clamp(72px,11vw,128px);line-height:.85;position:relative;z-index:1}
+.hero-stat .hs-lab{font-family:'Space Grotesk';font-weight:600;font-size:clamp(18px,2.2vw,26px);margin-top:4px;position:relative;z-index:1}
+.hero-stat .hs-desc{font-family:'Inter';font-size:14.5px;line-height:1.5;margin-top:12px;opacity:.92;font-weight:500;position:relative;z-index:1}
+.mock-support{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
+.mock-support li{font-size:14px}
+.inc-hl{background:var(--accent-soft);border-radius:8px;padding:5px 9px;margin:2px -6px;font-weight:700;color:var(--ink)}
+.inc-hl .tick.ok{font-weight:700}
 /* uplevel */
 .uplevel-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
 .uplevel-card{display:flex;gap:14px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px 22px;box-shadow:0 2px 14px -8px rgba(20,26,44,.18)}
@@ -499,6 +526,12 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
   .sc-row{grid-template-columns:90px 1fr 84px;gap:8px}
   .barchart{height:220px}
   .donut-wrap{flex-direction:column;gap:24px}
+  .nextflow{flex-direction:column}
+  .nstep-conn{flex:0 0 24px}.nstep-conn .nchev{transform:rotate(90deg)}
+  .curr-line{display:none}
+  .curr-node{justify-content:flex-start}
+  .hero-stats{grid-template-columns:1fr}
+  .mock-support{grid-template-columns:1fr}
   .host2{grid-template-columns:1fr;height:auto;min-height:100vh}
   .slide.slide-host{overflow-y:auto;justify-content:flex-start}
   .host-logo{position:static;margin-bottom:22px}
@@ -725,7 +758,39 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 <section class="slide slide-curriculum" data-sec="4">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">The curriculum</span><span class="sep">/</span><span class="num">24</span></div>
         <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(24px,3.4vw,40px)">AI-ready. Interview-ready. Industry-ready. In 14 weeks.</h1>
-        <div class="curr-grid" style="margin-top:18px"><div class="curr-mod reveal" style="transition-delay:0.25s"><div class="curr-head"><div class="curr-wk">Week 0</div><div class="curr-tag">Self-paced</div></div><div class="curr-title">Python Fundamentals</div><div class="curr-desc">A self-paced module for anyone who needs it before the Agentic AI track. Skip it if you already code in Python.</div><ul class="clean small curr-topics"><li><span class="tick ok">✓</span>Environment setup &amp; syntax</li><li><span class="tick ok">✓</span>Data types, operators, control flow</li><li><span class="tick ok">✓</span>Functions &amp; scope</li><li><span class="tick ok">✓</span>Lists, dictionaries &amp; sets</li><li><span class="tick ok">✓</span>Intro to OOP in Python</li></ul></div><div class="curr-mod reveal" style="transition-delay:0.35s"><div class="curr-head"><div class="curr-wk">Weeks 1-6</div><div class="curr-tag">Live</div></div><div class="curr-title">Data Structures &amp; Algorithms</div><div class="curr-desc">One week of AI-powered interview prep with Claude Code, then five weeks of language-agnostic DSA taught in pseudocode.</div><ul class="clean small curr-topics"><li><span class="tick ok">✓</span>AI-powered interview prep with Claude Code</li><li><span class="tick ok">✓</span>Sorting algorithms &amp; complexity analysis</li><li><span class="tick ok">✓</span>Recursion &amp; backtracking</li><li><span class="tick ok">✓</span>Trees, heaps &amp; tries</li><li><span class="tick ok">✓</span>Graphs: BFS, DFS, shortest paths</li><li><span class="tick ok">✓</span>Dynamic programming patterns</li></ul></div><div class="curr-mod reveal" style="transition-delay:0.45s"><div class="curr-head"><div class="curr-wk">Weeks 7-11</div><div class="curr-tag">Live</div></div><div class="curr-title">Agentic AI</div><div class="curr-desc">Build real agentic systems - RAG, multi-agent orchestration, observability, MCP - and ship a portfolio-ready capstone.</div><ul class="clean small curr-topics"><li><span class="tick ok">✓</span>RAG pipelines &amp; vector databases</li><li><span class="tick ok">✓</span>Multi-agent systems with LangGraph</li><li><span class="tick ok">✓</span>Observability &amp; evaluation</li><li><span class="tick ok">✓</span>Model Context Protocol (MCP) &amp; deployment</li><li><span class="tick ok">✓</span>End-to-end capstone &amp; demo day</li></ul></div><div class="curr-mod reveal" style="transition-delay:0.55s"><div class="curr-head"><div class="curr-wk">Weeks 12-14</div><div class="curr-tag">Live</div></div><div class="curr-title">Career Coaching</div><div class="curr-desc">Turn skills into offers - resume and profile, technical interview prep, behavioural rounds, and salary negotiation.</div><ul class="clean small curr-topics"><li><span class="tick ok">✓</span>ATS-friendly resume &amp; portfolio</li><li><span class="tick ok">✓</span>LinkedIn &amp; GitHub optimisation</li><li><span class="tick ok">✓</span>Technical interview strategy &amp; mocks</li><li><span class="tick ok">✓</span>STAR method for behavioural rounds</li><li><span class="tick ok">✓</span>Salary research &amp; offer negotiation</li></ul></div></div>
+        <div class="curr-timeline" style="margin-top:22px"><div class="curr-line reveal" style="transition-delay:.25s"></div><div class="curr-grid"><div class="curr-mod reveal" style="transition-delay:0.30s">
+              <div class="curr-node"><span class="curr-node-num">1</span></div>
+              <div class="curr-card">
+                <div class="curr-head"><div class="curr-wk">Week 0</div><div class="curr-tag self">Self-paced</div></div>
+                <div class="curr-title">Python Fundamentals</div>
+                <div class="curr-desc">A self-paced module for anyone who needs it before the Agentic AI track. Skip it if you already code in Python.</div>
+                <ul class="clean small curr-topics"><li><span class="tick ok">✓</span>Environment setup &amp; syntax</li><li><span class="tick ok">✓</span>Data types, operators, control flow</li><li><span class="tick ok">✓</span>Functions &amp; scope</li><li><span class="tick ok">✓</span>Lists, dictionaries &amp; sets</li><li><span class="tick ok">✓</span>Intro to OOP in Python</li></ul>
+              </div>
+            </div><div class="curr-mod reveal" style="transition-delay:0.42s">
+              <div class="curr-node"><span class="curr-node-num">2</span></div>
+              <div class="curr-card">
+                <div class="curr-head"><div class="curr-wk">Weeks 1-6</div><div class="curr-tag live">Live</div></div>
+                <div class="curr-title">Data Structures &amp; Algorithms</div>
+                <div class="curr-desc">One week of AI-powered interview prep with Claude Code, then five weeks of language-agnostic DSA taught in pseudocode.</div>
+                <ul class="clean small curr-topics"><li><span class="tick ok">✓</span>AI-powered interview prep with Claude Code</li><li><span class="tick ok">✓</span>Sorting algorithms &amp; complexity analysis</li><li><span class="tick ok">✓</span>Recursion &amp; backtracking</li><li><span class="tick ok">✓</span>Trees, heaps &amp; tries</li><li><span class="tick ok">✓</span>Graphs: BFS, DFS, shortest paths</li><li><span class="tick ok">✓</span>Dynamic programming patterns</li></ul>
+              </div>
+            </div><div class="curr-mod reveal" style="transition-delay:0.54s">
+              <div class="curr-node"><span class="curr-node-num">3</span></div>
+              <div class="curr-card">
+                <div class="curr-head"><div class="curr-wk">Weeks 7-11</div><div class="curr-tag live">Live</div></div>
+                <div class="curr-title">Agentic AI</div>
+                <div class="curr-desc">Build real agentic systems - RAG, multi-agent orchestration, observability, MCP - and ship a portfolio-ready capstone.</div>
+                <ul class="clean small curr-topics"><li><span class="tick ok">✓</span>RAG pipelines &amp; vector databases</li><li><span class="tick ok">✓</span>Multi-agent systems with LangGraph</li><li><span class="tick ok">✓</span>Observability &amp; evaluation</li><li><span class="tick ok">✓</span>Model Context Protocol (MCP) &amp; deployment</li><li><span class="tick ok">✓</span>End-to-end capstone &amp; demo day</li></ul>
+              </div>
+            </div><div class="curr-mod reveal" style="transition-delay:0.66s">
+              <div class="curr-node"><span class="curr-node-num">4</span></div>
+              <div class="curr-card">
+                <div class="curr-head"><div class="curr-wk">Weeks 12-14</div><div class="curr-tag live">Live</div></div>
+                <div class="curr-title">Career Coaching</div>
+                <div class="curr-desc">Turn skills into offers - resume and profile, technical interview prep, behavioural rounds, and salary negotiation.</div>
+                <ul class="clean small curr-topics"><li><span class="tick ok">✓</span>ATS-friendly resume &amp; portfolio</li><li><span class="tick ok">✓</span>LinkedIn &amp; GitHub optimisation</li><li><span class="tick ok">✓</span>Technical interview strategy &amp; mocks</li><li><span class="tick ok">✓</span>STAR method for behavioural rounds</li><li><span class="tick ok">✓</span>Salary research &amp; offer negotiation</li></ul>
+              </div>
+            </div></div></div>
         <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">Every session is live and recorded. 6-month support period.</p></div>
 </section>
 <section class="slide slide-toolstack" data-sec="4">
@@ -743,12 +808,11 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 </section>
 <section class="slide slide-mock-spotlight" data-sec="4">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">The part that gets you hired</span><span class="sep">/</span><span class="num">27</span></div>
-        <h1 class="display reveal" style="transition-delay:.1s">2 live mock interviews with MAANG+ hiring managers</h1>
-        <div class="mock-split reveal" style="transition-delay:.3s">
-          <div class="mock-big-card"><div class="mock-big">2</div><div class="mock-big-label">live mock interviews</div></div>
-          <div class="mock-body"><p class="mock-lead">You practise with the same kind of engineers and hiring managers who interview - and hire - candidates at MAANG+ companies in the real world. Real panel, real pressure, feedback you can act on immediately.</p><ul class="clean small"><li><span class="tick ok">✓</span>Unlimited AI mock interviews - practise between live rounds</li><li><span class="tick ok">✓</span>Recorded mock library - see how top candidates think</li><li><span class="tick ok">✓</span>AIQ Analyser - readiness score, skill-gap analysis &amp; roadmap</li><li><span class="tick ok">✓</span>AI resume analyser - sharpen how you present your impact</li></ul></div>
-        </div>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">Knowing isn&#x27;t the same as getting hired. This is the bridge between &#x27;I learned it&#x27; and &#x27;I got the offer.&#x27;</p></div>
+        <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,3.8vw,46px)">The bridge between learning it and landing the offer</h1>
+        <div class="hero-stats" style="margin-top:22px"><div class="hero-stat reveal" style="transition-delay:0.30s"><div class="hs-num">2</div><div class="hs-lab">live mock interviews</div><div class="hs-desc">with MAANG+ hiring managers - the same engineers who interview and hire candidates in the real world.</div></div><div class="hero-stat reveal" style="transition-delay:0.45s"><div class="hs-num">5</div><div class="hs-lab">application opportunities</div><div class="hs-desc">our Careers Team puts your profile forward for relevant openings when you meet the criteria.*</div></div></div>
+        <p class="mock-lead reveal" style="transition-delay:.6s;margin-top:20px;max-width:70ch">Knowing isn&#x27;t the same as getting hired. These two are the bridge - real interview practice, then real shots at real roles.</p>
+        <ul class="clean small mock-support reveal" style="transition-delay:.7s"><li><span class="tick ok">✓</span>Unlimited AI mock interviews - practise between live rounds</li><li><span class="tick ok">✓</span>Recorded mock library - see how top candidates think</li><li><span class="tick ok">✓</span>AIQ Analyser - readiness score, skill-gap analysis &amp; roadmap</li><li><span class="tick ok">✓</span>AI resume analyser - sharpen how you present your impact</li></ul>
+        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">*Opportunities to apply, not a job guarantee. Knowing isn&#x27;t the same as getting hired - this is what turns learning into an offer.</p></div>
 </section>
 <section class="slide slide-uplevel" data-sec="4">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Built around your life</span><span class="sep">/</span><span class="num">28</span></div>
@@ -765,7 +829,7 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 <section class="slide slide-included" data-sec="4">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Everything that&#x27;s included</span><span class="sep">/</span><span class="num">30</span></div>
         <h1 class="display reveal" style="transition-delay:.1s">What you get with the Accelerator</h1>
-        <div class="inccols" style="margin-top:20px"><div class="inccol reveal" style="transition-delay:0.25s"><div class="inchead"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg><h4>Learning</h4></div><ul class="clean small"><li><span class="tick ok">✓</span>14 weeks of live classes</li><li><span class="tick ok">✓</span>Self-paced Python (Week 0)</li><li><span class="tick ok">✓</span>Weekly guided projects</li><li><span class="tick ok">✓</span>Portfolio capstone + demo day</li><li><span class="tick ok">✓</span>Lifetime access to recordings</li></ul></div><div class="inccol reveal" style="transition-delay:0.37s"><div class="inchead"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg><h4>Interview readiness</h4></div><ul class="clean small"><li><span class="tick ok">✓</span>2 live mocks with MAANG+ engineers</li><li><span class="tick ok">✓</span>Unlimited AI mock interviews</li><li><span class="tick ok">✓</span>Recorded mock library</li><li><span class="tick ok">✓</span>AIQ Analyser + skill-gap roadmap</li><li><span class="tick ok">✓</span>AI resume analyser</li></ul></div><div class="inccol reveal" style="transition-delay:0.49s"><div class="inchead"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 2 6 6 6 10l-3 2H9l-3-2c0-4 2-8 6-10z"/><path d="M9 15l-3 4M15 15l3 4M10 9a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/></svg><h4>Career support</h4></div><ul class="clean small"><li><span class="tick ok">✓</span>Resume building and review</li><li><span class="tick ok">✓</span>LinkedIn and GitHub optimisation</li><li><span class="tick ok">✓</span>Salary negotiation coaching</li><li><span class="tick ok">✓</span>5 application opportunities*</li><li><span class="tick ok">✓</span>6 months of support</li></ul></div></div>
+        <div class="inccols" style="margin-top:20px"><div class="inccol reveal" style="transition-delay:0.25s"><div class="inchead"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg><h4>Learning</h4></div><ul class="clean small"><li><span class="tick ok">✓</span>14 weeks of live classes</li><li><span class="tick ok">✓</span>Self-paced Python (Week 0)</li><li><span class="tick ok">✓</span>Weekly guided projects</li><li><span class="tick ok">✓</span>Portfolio capstone + demo day</li><li><span class="tick ok">✓</span>Lifetime access to recordings</li></ul></div><div class="inccol reveal" style="transition-delay:0.37s"><div class="inchead"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="9" y="3" width="6" height="11" rx="3"/><path d="M5 11a7 7 0 0 0 14 0"/><path d="M12 18v3"/></svg><h4>Interview readiness</h4></div><ul class="clean small"><li class="inc-hl"><span class="tick ok">✓</span>2 live mocks with MAANG+ engineers</li><li><span class="tick ok">✓</span>Unlimited AI mock interviews</li><li><span class="tick ok">✓</span>Recorded mock library</li><li><span class="tick ok">✓</span>AIQ Analyser + skill-gap roadmap</li><li><span class="tick ok">✓</span>AI resume analyser</li></ul></div><div class="inccol reveal" style="transition-delay:0.49s"><div class="inchead"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3c4 2 6 6 6 10l-3 2H9l-3-2c0-4 2-8 6-10z"/><path d="M9 15l-3 4M15 15l3 4M10 9a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/></svg><h4>Career support</h4></div><ul class="clean small"><li><span class="tick ok">✓</span>Resume building and review</li><li><span class="tick ok">✓</span>LinkedIn and GitHub optimisation</li><li><span class="tick ok">✓</span>Salary negotiation coaching</li><li class="inc-hl"><span class="tick ok">✓</span>5 application opportunities*</li><li><span class="tick ok">✓</span>6 months of support</li></ul></div></div>
         <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">*When you meet the criteria, our Careers Team puts your profile forward for relevant openings. Opportunities to apply, not a job guarantee.</p></div>
 </section>
 <section class="slide slide-divider" data-sec="5">
@@ -818,12 +882,15 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 <section class="slide slide-next-steps" data-sec="5">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Your next steps</span><span class="sep">/</span><span class="num">35</span></div>
         <h1 class="display reveal" style="transition-delay:.1s">One conversation gets you started</h1>
-        <div class="nextsteps" style="margin-top:22px"><div class="nstep reveal" style="transition-delay:0.25s"><div class="nn">1</div><div><div class="nt">Talk to your Program Advisor</div><div class="nd">A quick call to understand your goals. No commitment required yet.</div></div></div><div class="nstep reveal" style="transition-delay:0.37s"><div class="nn">2</div><div><div class="nt">Get your personalised plan</div><div class="nd">See your EMI options and a roadmap mapped to your target roles.</div></div></div><div class="nstep reveal" style="transition-delay:0.49s"><div class="nn">3</div><div><div class="nt">Start building</div><div class="nd">Begin your 14-week journey to become an AI Builder.</div></div></div></div></div>
+        <div class="nextflow" style="margin-top:26px"><div class="nstep reveal" style="transition-delay:0.30s"><div class="nn">1</div><div class="nstep-body"><div class="nt">Talk to your Program Advisor</div><div class="nd">A quick call to understand your goals. No commitment required yet.</div></div></div><div class="nstep-conn reveal" style="transition-delay:0.37s"><span class="nchev">›</span></div><div class="nstep reveal" style="transition-delay:0.44s"><div class="nn">2</div><div class="nstep-body"><div class="nt">Get your personalised plan</div><div class="nd">See your EMI options and a roadmap mapped to your target roles.</div></div></div><div class="nstep-conn reveal" style="transition-delay:0.51s"><span class="nchev">›</span></div><div class="nstep reveal" style="transition-delay:0.58s"><div class="nn">3</div><div class="nstep-body"><div class="nt">Start building</div><div class="nd">Begin your 14-week journey to become an AI Builder.</div></div></div></div></div>
 </section>
 <section class="slide slide-quote" data-sec="0">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">One last thought</span><span class="sep">/</span><span class="num">36</span></div>
-        <h1 class="display reveal serif-it" style="transition-delay:.1s;font-size:clamp(30px,5vw,60px);line-height:1.2;max-width:18ch">The biggest risk isn&#x27;t investing in yourself. It&#x27;s staying where you are while the market moves on.</h1>
-        <p class="sub reveal" style="transition-delay:.4s;margin-top:24px">&quot;India is rapidly becoming an AI innovation leader&quot; - Satya Nadella, CEO, Microsoft</p></div>
+        <div class="quote-callout reveal" style="transition-delay:.15s">
+          <span class="quote-mark">“</span>
+          <h1 class="quote-big serif-it">The biggest risk isn&#x27;t investing in yourself. It&#x27;s staying where you are while the market moves on.</h1>
+          <p class="quote-attr">&quot;India is rapidly becoming an AI innovation leader&quot; - Satya Nadella, CEO, Microsoft</p>
+        </div></div>
 </section>
 <section class="slide slide-qa" data-sec="0">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Q &amp; A</span><span class="sep">/</span><span class="num">37</span></div>
@@ -937,14 +1004,14 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
   });
 
   // ---- 3D tilt-on-hover for cards ----
-  const tiltSel='.metric,.diff-card,.diffgrid>div,.buildcard,.skill-pill,.ins,.tcard,.uplevel-card,.fitcard,.glance-card,.vh-pill,.curr-mod,.plan,.reason,.persona,.trapcard,.agenda-item,.newscard,.jd-card,.mind-row';
+  const tiltSel='.metric,.diff-card,.diffgrid>div,.buildcard,.skill-pill,.ins,.tcard,.uplevel-card,.fitcard,.glance-card,.vh-pill,.curr-card,.plan,.reason,.persona,.trapcard,.agenda-item,.newscard,.jd-card,.mind-row';
   document.querySelectorAll(tiltSel).forEach(card=>{
     card.style.transformStyle='preserve-3d';
     card.style.willChange='transform';
     card.addEventListener('pointermove',e=>{
       const r=card.getBoundingClientRect();
       const px=(e.clientX-r.left)/r.width-0.5, py=(e.clientY-r.top)/r.height-0.5;
-      card.style.transform=`perspective(800px) rotateX(${(-py*5).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg) translateZ(8px)`;
+      card.style.transform=`perspective(800px) rotateX(${(-py*5).toFixed(2)}deg) rotateY(${(px*6).toFixed(2)}deg) translateZ(10px) scale(1.02)`;
     });
     card.addEventListener('pointerleave',()=>{card.style.transform='';});
   });
