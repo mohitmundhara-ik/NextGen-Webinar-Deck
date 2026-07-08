@@ -1418,6 +1418,28 @@ body:has(.slide-perpost.active) .design-layer,body:has(.slide-perpost.active) .g
 .tb-sep{color:var(--tbline);margin:0 3px}
 .tb-hl2{color:var(--tbp);font-weight:700}
 @media (max-width:900px){.tb-top{grid-template-columns:1fr}.tb-cards4{grid-template-columns:1fr 1fr}}
+.slide-uplevel .slide-inner,.slide-fit-grid .slide-inner{max-width:1300px}
+.prem-wrap{--pp:#6D4CFF;--pp-lt:#F2ECFF;--pp-bd:#E4DBFF;--pdark:#111827;--pmuted:#4B5563;--pline:#ECEAF7;position:relative;width:100%}
+.prem-top{position:relative;display:flex;align-items:flex-start;justify-content:space-between;gap:20px}
+.prem-bar{width:32px;height:4px;border-radius:3px;background:var(--pp)}
+.prem-label{font-family:'Space Grotesk';font-weight:800;font-size:12px;letter-spacing:.08em;color:var(--pp);margin-top:10px}
+.prem-h1{font-family:'Space Grotesk';font-weight:800;font-size:clamp(26px,3.4vw,42px);line-height:1.12;color:var(--pdark);margin-top:8px;letter-spacing:-.01em}
+.prem-hl{color:var(--pp)}
+.prem-deco{flex-shrink:0;opacity:.9}
+.prem-grid{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:22px}
+.prem-card{background:#fff;border:1px solid var(--pline);border-radius:20px;padding:20px 22px;box-shadow:0 16px 38px -24px rgba(17,24,39,.16);display:flex;align-items:flex-start;gap:16px;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.prem-card:hover{transform:translateY(-3px);box-shadow:0 22px 46px -22px rgba(17,24,39,.24)}
+.prem-icon{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:var(--pp-lt);display:flex;align-items:center;justify-content:center}
+.prem-icon svg{width:24px;height:24px;stroke:var(--pp);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.prem-ct{font-family:'Space Grotesk';font-weight:800;font-size:16.5px;color:var(--pdark);line-height:1.25}
+.prem-cd{font-family:'Inter';font-size:13px;color:var(--pmuted);line-height:1.45;margin-top:5px;font-weight:500}
+.prem-banner{margin-top:16px;background:#fff;border:1px solid var(--pline);border-radius:18px;box-shadow:0 14px 34px -22px rgba(17,24,39,.18);padding:16px 26px;display:flex;align-items:center;gap:18px}
+.prem-bicon{flex-shrink:0;width:52px;height:52px;border-radius:50%;background:linear-gradient(135deg,var(--pp),#4B2FCC);display:flex;align-items:center;justify-content:center;box-shadow:0 10px 24px -10px rgba(109,76,255,.55)}
+.prem-bicon svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.prem-btext{font-family:'Inter';font-size:15px;color:var(--pdark);font-weight:500;line-height:1.4;flex:1}
+.prem-btext b,.prem-btext .prem-hl{color:var(--pp);font-weight:700}
+.prem-bdeco{flex-shrink:0;opacity:.85}
+@media (max-width:900px){.prem-grid{grid-template-columns:1fr}.prem-top{flex-direction:column}}
 </style></head>
 <body>
 <div class="ambient"></div><div class="grid-bg"></div>
@@ -2319,16 +2341,62 @@ It&#x27;s about being seen for the right value.
         <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">*Opportunities to apply, not a job guarantee. Knowing isn&#x27;t the same as getting hired - this is what turns learning into an offer.</p></div>
 </section>
 <section class="slide slide-uplevel" data-sec="4">
-<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Built around your life</span></div>
-        <h1 class="display reveal" style="transition-delay:.1s">How the program fits a full-time job</h1>
-        <div class="uplevel-grid" style="margin-top:20px"><div class="uplevel-card reveal" style="transition-delay:0.25s"><div class="up-icon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div><div class="up-t">Live on evenings &amp; weekends</div><div class="up-d">Sessions are scheduled around working hours, so you never choose between your job and upskilling.</div></div><div class="uplevel-card reveal" style="transition-delay:0.35s"><div class="up-icon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div class="up-t">Every session recorded</div><div class="up-d">Miss one? Catch up on your own time. Lifetime access to all recordings.</div></div><div class="uplevel-card reveal" style="transition-delay:0.45s"><div class="up-icon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></div><div class="up-t">8-10 hours a week</div><div class="up-d">A realistic, structured commitment - not an all-or-nothing bootcamp.</div></div><div class="uplevel-card reveal" style="transition-delay:0.55s"><div class="up-icon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><div class="up-t">6 months of support</div><div class="up-d">Guidance continues well after the 14 weeks, through your interview process.</div></div></div>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">The No. 1 concern we hear from working engineers is time. The program is designed around exactly that.</p></div>
+<div class="slide-inner"><div class="prem-wrap">
+  <div class="prem-top">
+    <div>
+      <div class="prem-bar reveal"></div>
+      <div class="prem-label reveal" style="transition-delay:.05s">Built around your life</div>
+      <h1 class="prem-h1 reveal" style="transition-delay:.1s">How the program fits<br>a <span class="prem-hl">full-time job</span></h1>
+    </div>
+    <svg class="prem-deco reveal" style="transition-delay:.15s" width="150" height="130" viewBox="0 0 150 130">
+      <rect x="48" y="24" width="88" height="82" rx="10" fill="#fff" stroke="#E4DBFF" stroke-width="2"/>
+      <rect x="48" y="24" width="88" height="20" rx="10" fill="#6D4CFF" opacity=".15"/>
+      <path d="M68 16v16M116 16v16" stroke="#6D4CFF" stroke-width="4" stroke-linecap="round"/>
+      <g fill="#EDE6FF"><rect x="60" y="54" width="12" height="10" rx="2"/><rect x="78" y="54" width="12" height="10" rx="2"/><rect x="96" y="54" width="12" height="10" rx="2"/><rect x="60" y="70" width="12" height="10" rx="2"/><rect x="96" y="70" width="12" height="10" rx="2"/></g>
+      <rect x="78" y="70" width="12" height="10" rx="2" fill="#6D4CFF"/>
+      <circle cx="112" cy="98" r="22" fill="#6D4CFF"/>
+      <path d="M112 88v10l7 5" stroke="#fff" stroke-width="3" stroke-linecap="round" stroke-linejoin="round" fill="none"/>
+    </svg>
+  </div>
+  <div class="prem-grid">
+    <div class="prem-card reveal" style="transition-delay:0.25s"><div class="prem-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 9h18M8 3v4M16 3v4"/></svg></div><div><div class="prem-ct">Live on evenings &amp; weekends</div><div class="prem-cd">Sessions are scheduled around working hours, so you never choose between your job and upskilling.</div></div></div>
+    <div class="prem-card reveal" style="transition-delay:0.32s"><div class="prem-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></div><div><div class="prem-ct">Every session recorded</div><div class="prem-cd">Miss one? Catch up on your own time. Lifetime access to all recordings.</div></div></div>
+    <div class="prem-card reveal" style="transition-delay:0.39s"><div class="prem-icon"><svg viewBox="0 0 24 24"><path d="M12 3l2 6 6 2-6 2-2 6-2-6-6-2 6-2z"/></svg></div><div><div class="prem-ct">8-10 hours a week</div><div class="prem-cd">A realistic, structured commitment - not an all-or-nothing bootcamp.</div></div></div>
+    <div class="prem-card reveal" style="transition-delay:0.46s"><div class="prem-icon"><svg viewBox="0 0 24 24"><path d="M12 3l8 3v6c0 5-3.5 8-8 9-4.5-1-8-4-8-9V6z"/></svg></div><div><div class="prem-ct">6 months of support</div><div class="prem-cd">Guidance continues well after the 14 weeks, through your interview process.</div></div></div>
+  </div>
+  <div class="prem-banner reveal" style="transition-delay:.55s">
+    <span class="prem-bicon"><svg viewBox="0 0 24 24"><circle cx="9" cy="8" r="3"/><path d="M4 20c0-3.3 2.7-5.5 5-5.5M13 5.5a3 3 0 1 1 0 6M15 14.5c2.3 0 5 2.2 5 5.5"/><path d="M17 4l1 2 2 .3-1.5 1.4.4 2-1.9-1-1.9 1 .4-2L14 6.3l2-.3z"/></svg></span>
+    <span class="prem-btext">The No. 1 concern we hear from working engineers is <b>time</b>. The program is designed around exactly that.</span>
+  </div>
+</div></div>
 </section>
 <section class="slide slide-fit-grid" data-sec="4">
-<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Who it&#x27;s built for</span></div>
-        <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,4vw,46px)">Wherever you are in 0-5 years, there&#x27;s a seat for you</h1>
-        <div class="fitgrid" style="margin-top:20px"><div class="fitcard reveal" style="transition-delay:0.22s"><div class="fiticon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M2 7l10-4 10 4-10 4z"/><path d="M6 9v5c0 1.5 3 3 6 3s6-1.5 6-3V9"/><path d="M22 7v5"/></svg></div><div><div class="fitt">Fresh graduates</div><div class="fitd">Turn a strong CGPA into a portfolio that clears AI-era screening.</div></div></div><div class="fitcard reveal" style="transition-delay:0.31s"><div class="fiticon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M14 7a4 4 0 0 1-5.5 5.5L4 17l3 3 4.5-4.5A4 4 0 0 1 17 10l-3-3z"/></svg></div><div><div class="fitt">Service-company engineers</div><div class="fitd">Make the jump to product companies and GCCs with real AI projects.</div></div></div><div class="fitcard reveal" style="transition-delay:0.40s"><div class="fiticon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div><div><div class="fitt">Career switchers</div><div class="fitd">From a non-coding or electronics background? Start at Python and build up.</div></div></div><div class="fitcard reveal" style="transition-delay:0.49s"><div class="fiticon"><svg class="cicon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></div><div><div class="fitt">Self-prep engineers</div><div class="fitd">Replace scattered YouTube and LeetCode with structure and calibration.</div></div></div></div>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">One program, designed for every tier of the early-career journey.</p></div>
+<div class="slide-inner"><div class="prem-wrap">
+  <div class="prem-top">
+    <div>
+      <div class="prem-bar reveal"></div>
+      <div class="prem-label reveal" style="transition-delay:.05s">Who it&#x27;s built for</div>
+      <h1 class="prem-h1 reveal" style="transition-delay:.1s">Wherever you are in 0-5 years,<br><span class="prem-hl">there&#x27;s a seat for you</span></h1>
+    </div>
+  </div>
+  <div class="prem-grid">
+    <div class="prem-card reveal" style="transition-delay:0.22s"><div class="prem-icon"><svg viewBox="0 0 24 24"><path d="M2 7l10-4 10 4-10 4z"/><path d="M6 9v5c0 1.5 3 3 6 3s6-1.5 6-3V9"/><path d="M22 7v5"/></svg></div><div><div class="prem-ct">Fresh graduates</div><div class="prem-cd">Turn a strong CGPA into a portfolio that clears AI-era screening.</div></div></div>
+    <div class="prem-card reveal" style="transition-delay:0.29s"><div class="prem-icon"><svg viewBox="0 0 24 24"><path d="M4 6h16v11a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2z"/><path d="M9 6V5a2 2 0 0 1 2-2h2a2 2 0 0 1 2 2v1"/></svg></div><div><div class="prem-ct">Service-company engineers</div><div class="prem-cd">Make the jump to product companies and GCCs with real AI projects.</div></div></div>
+    <div class="prem-card reveal" style="transition-delay:0.36s"><div class="prem-icon"><svg viewBox="0 0 24 24"><path d="M3 12a9 9 0 0 1 15-6.7L21 8"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-15 6.7L3 16"/><path d="M3 21v-5h5"/></svg></div><div><div class="prem-ct">Career switchers</div><div class="prem-cd">From a non-coding or electronics background? Start at Python and build up.</div></div></div>
+    <div class="prem-card reveal" style="transition-delay:0.43s"><div class="prem-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="9" r="5"/><path d="M9 13l-2 8 5-3 5 3-2-8"/></svg></div><div><div class="prem-ct">Self-prep engineers</div><div class="prem-cd">Replace scattered YouTube and LeetCode with structure and calibration.</div></div></div>
+  </div>
+  <div class="prem-banner reveal" style="transition-delay:.5s">
+    <span class="prem-bicon"><svg viewBox="0 0 24 24"><path d="M8 21h8M9 3h6l1 5a4 4 0 0 1-8 0z"/><path d="M12 12v4"/></svg></span>
+    <span class="prem-btext">One program, designed for <b>every tier</b> of the early-career journey.</span>
+    <svg class="prem-bdeco" width="90" height="60" viewBox="0 0 90 60">
+      <rect x="4" y="42" width="16" height="14" rx="2" fill="#EDE6FF"/>
+      <rect x="24" y="32" width="16" height="24" rx="2" fill="#DCCFFF"/>
+      <rect x="44" y="20" width="16" height="36" rx="2" fill="#B69CFF"/>
+      <rect x="64" y="8" width="16" height="48" rx="2" fill="#6D4CFF"/>
+      <path d="M72 8V2l7 3-7 3z" fill="#6D4CFF"/>
+    </svg>
+  </div>
+</div></div>
 </section>
 <section class="slide slide-roi2" data-sec="4">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">ROI, interview to offer, avg increment</span></div>
