@@ -298,7 +298,7 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .dpath .dline:first-child{font-family:'Space Grotesk';font-weight:600;color:var(--accent);margin-bottom:8px;transition:color 1s}
 .dpath .dline:last-child{color:var(--muted);font-weight:500}
 .plangrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
-.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.plan{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:16px}
 .plan .plname{font-family:'Space Grotesk';font-weight:600;font-size:16px;line-height:1.25}
 .plan .plprice{font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4vw,44px);color:var(--accent);margin:12px 0 4px;transition:color 1s}
 .plan .plnote{color:var(--muted);font-size:13px;font-weight:500}
@@ -788,12 +788,12 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .mock-lead{font-size:clamp(15px,1.8vw,19px);line-height:1.55;margin-bottom:16px;font-weight:500}
 .mock-body ul li{font-size:14.5px;margin-bottom:8px}
 /* dual hero stats */
-.hero-stats{display:grid;grid-template-columns:1fr 1fr;gap:20px}
-.hero-stat{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 80%,#000));border-radius:22px;padding:30px 32px;color:#fff;box-shadow:0 18px 46px -18px var(--accent);transition:background 1s,transform .25s,box-shadow .25s;display:flex;flex-direction:column}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.hero-stat{position:relative;overflow:hidden;background:linear-gradient(135deg,var(--accent),color-mix(in srgb,var(--accent) 80%,#000));border-radius:22px;padding:26px 24px;color:#fff;box-shadow:0 18px 46px -18px var(--accent);transition:background 1s,transform .25s,box-shadow .25s;display:flex;flex-direction:column}
 .hero-stat::after{content:"";position:absolute;width:220px;height:220px;border-radius:50%;background:rgba(255,255,255,.12);top:-90px;right:-60px}
-.hero-stat .hs-num{font-family:'Space Grotesk';font-weight:700;font-size:clamp(72px,11vw,128px);line-height:.85;position:relative;z-index:1}
-.hero-stat .hs-lab{font-family:'Space Grotesk';font-weight:600;font-size:clamp(18px,2.2vw,26px);margin-top:4px;position:relative;z-index:1}
-.hero-stat .hs-desc{font-family:'Inter';font-size:14.5px;line-height:1.5;margin-top:12px;opacity:.92;font-weight:500;position:relative;z-index:1}
+.hero-stat .hs-num{font-family:'Space Grotesk';font-weight:700;font-size:clamp(52px,7.5vw,92px);line-height:.85;position:relative;z-index:1}
+.hero-stat .hs-lab{font-family:'Space Grotesk';font-weight:600;font-size:clamp(15px,1.7vw,21px);margin-top:4px;position:relative;z-index:1}
+.hero-stat .hs-desc{font-family:'Inter';font-size:12.5px;line-height:1.45;margin-top:10px;opacity:.92;font-weight:500;position:relative;z-index:1}
 .mock-support{margin-top:14px;display:grid;grid-template-columns:1fr 1fr;gap:6px 24px}
 .mock-support li{font-size:14px}
 .inc-hl{background:var(--accent-soft);border-radius:8px;padding:5px 9px;margin:2px -6px;font-weight:700;color:var(--ink)}
@@ -1368,6 +1368,56 @@ body:has(.slide-perpost.active) .design-layer,body:has(.slide-perpost.active) .g
 .rr-foot{background:var(--ink);color:#fff;border-radius:12px;padding:clamp(11px,1.4vh,15px) clamp(18px,2vw,24px);text-align:center;font-family:'Space Grotesk';font-size:clamp(12.5px,1.3vw,15px);font-weight:500}
 .rr-foot b{color:#5FE0A8;font-weight:700}
 @media (max-width:900px){.rr-grid2{grid-template-columns:1fr}}
+.slide-toolbuild .slide-inner{max-width:1780px;width:96%}
+.tb-wrap{position:relative;width:100%;--tbp:#6D4CFF;--tbp-lt:#F2ECFF;--tbp-bd:#D7CCFF;--tbdark:#111827;--tbline:#E6E6F2;--tbmuted:#6B7280}
+.tb-top{position:relative;display:grid;grid-template-columns:1fr 1.28fr;gap:22px;align-items:start;z-index:3;padding:26px 0 70px}
+.tb-pill{display:inline-flex;align-items:center;background:var(--tbp-lt);border:1px solid var(--tbp-bd);color:var(--tbp);font-family:'Space Grotesk';font-weight:700;font-size:9.5px;letter-spacing:.06em;text-transform:uppercase;padding:5px 13px;border-radius:20px}
+.tb-h1{font-family:'Space Grotesk';font-weight:800;font-size:clamp(21px,2.15vw,28px);line-height:1.12;color:var(--tbdark);margin-top:9px;letter-spacing:-.01em}
+.tb-hl{color:var(--tbp);position:relative;white-space:nowrap}
+.tb-hl::after{content:"";position:absolute;left:1px;right:1px;bottom:-2px;height:4px;background:var(--tbp);opacity:.45;border-radius:3px;transform:rotate(-.8deg)}
+.tb-stackcard{background:#fff;border:1px solid var(--tbline);border-radius:16px;padding:11px 8px;box-shadow:0 10px 28px -18px rgba(17,24,39,.18);margin-top:11px}
+.tb-logo-row{display:flex;justify-content:space-between;gap:4px}
+.tb-logo-item{display:flex;flex-direction:column;align-items:center;gap:4px;flex:1;min-width:0}
+.tb-logo-item svg{width:23px;height:23px;flex-shrink:0}
+.tb-logo-item span{font-family:'Inter';font-weight:600;font-size:8.7px;color:var(--tbdark);text-align:center;white-space:nowrap}
+.tb-caption{font-family:'Space Grotesk';font-weight:700;font-size:9px;letter-spacing:.04em;text-transform:uppercase;color:var(--tbp);margin-top:10px}
+.tb-pillrow{display:flex;flex-wrap:wrap;gap:6px;margin-top:7px}
+.tb-chip{background:var(--tbp-lt);border:1px solid var(--tbp-bd);color:var(--tbdark);font-family:'Space Grotesk';font-weight:600;font-size:9.5px;padding:5px 11px;border-radius:16px;white-space:nowrap}
+.tb-center{position:absolute;inset:0;pointer-events:none;z-index:1}
+.tb-road-svg{width:100%;height:100%;display:block}
+.tb-stop{position:absolute;pointer-events:none;display:flex;align-items:center;gap:9px;z-index:4}
+.tb-stopicon{width:38px;height:38px;border-radius:50%;background:linear-gradient(135deg,var(--tbp),#4B2FCC);display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 4px #fff,0 10px 22px -8px rgba(109,76,255,.55);flex-shrink:0}
+.tb-stopicon svg{width:19px;height:19px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.tb-stopcard{background:#fff;border-radius:13px;box-shadow:0 14px 32px -16px rgba(17,24,39,.24);padding:8px 12px;max-width:188px}
+.tb-badge{display:inline-flex;align-items:center;justify-content:center;width:16px;height:16px;border-radius:5px;background:var(--tbp);color:#fff;font-family:'Space Grotesk';font-weight:800;font-size:10px;margin-bottom:3px}
+.tb-stoptitle{font-family:'Space Grotesk';font-weight:800;font-size:11.5px;color:var(--tbdark);line-height:1.15}
+.tb-stopbody{font-family:'Inter';font-size:9px;color:var(--tbmuted);line-height:1.28;margin-top:2px}
+.tb-right{position:relative;z-index:3}
+.tb-h2{font-family:'Space Grotesk';font-weight:800;font-size:clamp(19px,2vw,26px);line-height:1.12;color:var(--tbdark);margin-top:9px}
+.tb-cards4{display:grid;grid-template-columns:repeat(4,1fr);gap:9px;margin-top:30px}
+.tb-pcard{background:#fff;border:1px solid var(--tbline);border-radius:13px;padding:10px;box-shadow:0 10px 24px -18px rgba(17,24,39,.2);display:flex;flex-direction:column;gap:5px}
+.tb-tag{display:inline-flex;align-self:flex-start;background:var(--tbp-lt);color:var(--tbp);font-family:'Space Grotesk';font-weight:800;font-size:7.8px;letter-spacing:.04em;padding:3px 7px;border-radius:9px}
+.tb-pctitle{font-family:'Space Grotesk';font-weight:800;font-size:11.5px;color:var(--tbdark);line-height:1.2}
+.tb-pcdesc{font-family:'Inter';font-size:9px;color:var(--tbmuted);line-height:1.3}
+.tb-pclogos{margin-top:auto;display:flex;gap:7px;align-items:center;padding-top:5px;border-top:1px solid var(--tbline)}
+.tb-pclogos svg{width:14px;height:14px}
+.tb-pclogos span{font-family:'Inter';font-size:8px;color:var(--tbmuted);font-weight:600}
+.tb-banner{margin-top:13px;position:relative;z-index:3;background:#fff;border:1px solid var(--tbline);border-radius:16px;box-shadow:0 12px 30px -20px rgba(17,24,39,.18);padding:10px 20px;display:flex;align-items:center;gap:13px}
+.tb-bannericon{width:30px;height:30px;border-radius:50%;background:var(--tbp-lt);display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 0 0 3px #fff,0 6px 14px -6px rgba(109,76,255,.4)}
+.tb-bannericon svg{width:16px;height:16px;stroke:var(--tbp);fill:none;stroke-width:1.8}
+.tb-bannertext{font-family:'Inter';font-size:11.5px;color:var(--tbdark);font-weight:500;flex:1}
+.tb-bannertext b{color:var(--tbp);font-weight:700}
+.tb-growthicon svg{width:32px;height:20px;stroke:var(--tbp);fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
+.tb-companies{margin-top:10px;text-align:center;position:relative;z-index:3}
+.tb-companies-cap{font-family:'Space Grotesk';font-weight:700;font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;color:#9CA3AF}
+.tb-companies-row{display:flex;justify-content:center;align-items:center;gap:22px;margin-top:7px;flex-wrap:wrap}
+.tb-companies-row svg{height:16px;width:auto}
+.tb-finalpill{margin-top:10px;display:flex;justify-content:center;position:relative;z-index:3}
+.tb-finalpill-inner{background:#fff;border:1px solid var(--tbline);border-radius:24px;box-shadow:0 10px 24px -18px rgba(17,24,39,.2);padding:8px 20px;display:flex;align-items:center;gap:9px;font-family:'Inter';font-size:10.5px;font-weight:600;color:var(--tbdark)}
+.tb-heart{color:var(--tbp)}
+.tb-sep{color:var(--tbline);margin:0 3px}
+.tb-hl2{color:var(--tbp);font-weight:700}
+@media (max-width:900px){.tb-top{grid-template-columns:1fr}.tb-cards4{grid-template-columns:1fr 1fr}}
 </style></head>
 <body>
 <div class="ambient"></div><div class="grid-bg"></div>
@@ -2188,23 +2238,82 @@ It&#x27;s about being seen for the right value.
             </div></div></div>
         <p class="sub reveal" style="transition-delay:.5s;margin-top:10px">Every session is live and recorded. 6-month support period.</p></div>
 </section>
-<section class="slide slide-toolstack" data-sec="4">
-<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Built on the production AI stack</span></div>
-        <h1 class="display reveal" style="transition-delay:.1s">Master the exact tools the job asks for</h1>
-        <div class="toolstack-logos reveal" style="transition-delay:.3s"><span class="cobrand big">Python</span><span class="cobrand big">LangChain</span><span class="cobrand big">OpenAI</span><span class="cobrand big">Streamlit</span><span class="cobrand big">Hugging Face</span><span class="cobrand big">GitHub</span></div>
-        <div class="toolstack-chips reveal" style="transition-delay:.4s"><span class="toolchip">LangChain</span><span class="toolchip">LangGraph</span><span class="toolchip">ChromaDB</span><span class="toolchip">Pinecone</span><span class="toolchip">LangSmith</span><span class="toolchip">MCP</span><span class="toolchip">Streamlit</span><span class="toolchip">Hugging Face</span><span class="toolchip">OpenAI</span><span class="toolchip">Claude Code</span></div>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">The same stack named across India&#x27;s 2026 AI job descriptions.</p></div>
-</section>
-<section class="slide slide-build-grid" data-sec="4">
-<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">What you&#x27;ll actually build</span></div>
-        <h1 class="display reveal" style="transition-delay:.1s">A portfolio of real, shipped AI projects</h1>
-        <div class="buildgrid" style="margin-top:20px"><div class="buildcard reveal" style="transition-delay:0.22s"><div class="btag">RAG</div><div class="bname">Doc-grounded Q&amp;A assistant</div><div class="bdesc">Retrieval over your own data with a vector database.</div></div><div class="buildcard reveal" style="transition-delay:0.31s"><div class="btag">AGENTS</div><div class="bname">Multi-agent research workflow</div><div class="bdesc">Agents that plan, call tools and hand off tasks.</div></div><div class="buildcard reveal" style="transition-delay:0.40s"><div class="btag">MCP</div><div class="bname">Tool-connected AI app</div><div class="bdesc">Wire models to real tools with Model Context Protocol.</div></div><div class="buildcard reveal" style="transition-delay:0.49s"><div class="btag">CAPSTONE</div><div class="bname">End-to-end deployed app</div><div class="bdesc">A portfolio-ready project you demo on demo day.</div></div></div>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">You finish with shipped, deployable projects - the proof of skill that gets the callback.</p></div>
+<section class="slide slide-toolbuild" data-sec="4">
+<div class="slide-inner"><div class="tb-wrap">
+  <div class="tb-top">
+    <div class="tb-left">
+      <span class="tb-pill reveal">Built on the production AI stack</span>
+      <h1 class="tb-h1 reveal" style="transition-delay:.08s">Master the exact tools<br>the <span class="tb-hl">job</span> asks for</h1>
+      <div class="tb-stackcard reveal" style="transition-delay:.16s">
+        <div class="tb-logo-row">
+          <div class="tb-logo-item"><svg viewBox="0 0 32 32"><path fill="#3776AB" d="M16 3c-6 0-6 3-6 3v3h6v1H7s-3 0-3 6 3 6 3 6h3v-3s0-3 3-3h6s3 0 3-3V6s0-3-6-3zm-3 3a1.2 1.2 0 1 1 0 2.4A1.2 1.2 0 0 1 13 6z"/><path fill="#FFD43B" d="M16 29c6 0 6-3 6-3v-3h-6v-1h9s3 0 3-6-3-6-3-6h-3v3s0 3-3 3h-6s-3 0-3 3v6s0 3 6 3zm3-3a1.2 1.2 0 1 1 0-2.4A1.2 1.2 0 0 1 19 26z"/></svg><span>Python</span></div>
+          <div class="tb-logo-item"><svg viewBox="0 0 24 24" fill="none" stroke="#1C3C3C" stroke-width="2" stroke-linecap="round"><rect x="3" y="8" width="9" height="9" rx="4"/><rect x="12" y="7" width="9" height="9" rx="4"/></svg><span>LangChain</span></div>
+          <div class="tb-logo-item"><svg viewBox="0 0 24 24" fill="#0B0B0F"><path d="M12 2a3 3 0 0 0-2.8 4.1A3 3 0 0 0 6 9a3 3 0 0 0 0 6 3 3 0 0 0 3.2 2.9A3 3 0 0 0 12 22a3 3 0 0 0 2.8-4.1A3 3 0 0 0 18 15a3 3 0 0 0 0-6 3 3 0 0 0-3.2-2.9A3 3 0 0 0 12 2z"/></svg><span>OpenAI</span></div>
+          <div class="tb-logo-item"><svg viewBox="0 0 24 24"><path fill="#FF4B4B" d="M3 12l7-9v6l8-6-5 8h6l-11 9v-6l-8 6z"/></svg><span>Streamlit</span></div>
+          <div class="tb-logo-item"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="#FFD21E"/><circle cx="8.5" cy="10" r="1.3"/><circle cx="15.5" cy="10" r="1.3"/><path d="M8 14c1 2 7 2 8 0" stroke="#000" stroke-width="1.3" fill="none" stroke-linecap="round"/></svg><span>Hugging Face</span></div>
+          <div class="tb-logo-item"><svg viewBox="0 0 24 24" fill="#181717"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.4.3.7 1 .7 2v2.9c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><span>GitHub</span></div>
+        </div>
+      </div>
+      <div class="tb-caption reveal" style="transition-delay:.22s">The same stack named across India&#x27;s 2026 AI job descriptions</div>
+      <div class="tb-pillrow reveal" style="transition-delay:.26s"><span class="tb-chip">LangChain</span><span class="tb-chip">LangGraph</span><span class="tb-chip">ChromaDB</span><span class="tb-chip">Pinecone</span><span class="tb-chip">LangSmith</span><span class="tb-chip">MCP</span></div>
+      <div class="tb-pillrow reveal" style="transition-delay:.3s"><span class="tb-chip">Streamlit</span><span class="tb-chip">Hugging Face</span><span class="tb-chip">OpenAI</span><span class="tb-chip">Claude Code</span></div>
+    </div>
+    <div class="tb-right">
+      <span class="tb-pill reveal" style="transition-delay:.34s">What you&#x27;ll actually build</span>
+      <h2 class="tb-h2 reveal" style="transition-delay:.38s">A portfolio of real,<br><span class="tb-hl">shipped</span> AI projects</h2>
+      <div class="tb-cards4">
+        <div class="tb-pcard reveal" style="transition-delay:.44s"><span class="tb-tag">RAG</span><div class="tb-pctitle">Doc-grounded Q&amp;A assistant</div><div class="tb-pcdesc">Retrieve over your own data with a vector database.</div><div class="tb-pclogos"><svg viewBox="0 0 24 24"><circle cx="8" cy="8" r="5" fill="#FF6B6B" opacity=".85"/><circle cx="15" cy="8" r="5" fill="#4ECDC4" opacity=".85"/><circle cx="11.5" cy="14" r="5" fill="#FFD93D" opacity=".85"/></svg><span>Chroma</span><svg viewBox="0 0 24 24" fill="#0B0B0F"><path d="M12 2a3 3 0 0 0-2.8 4.1A3 3 0 0 0 6 9a3 3 0 0 0 0 6 3 3 0 0 0 3.2 2.9A3 3 0 0 0 12 22a3 3 0 0 0 2.8-4.1A3 3 0 0 0 18 15a3 3 0 0 0 0-6 3 3 0 0 0-3.2-2.9A3 3 0 0 0 12 2z"/></svg><span>OpenAI</span></div></div>
+        <div class="tb-pcard reveal" style="transition-delay:.5s"><span class="tb-tag">AGENTS</span><div class="tb-pctitle">Multi-agent research workflow</div><div class="tb-pcdesc">Agents that plan, call tools and hand off tasks.</div><div class="tb-pclogos"><svg viewBox="0 0 24 24" fill="none" stroke="#1C3C3C" stroke-width="2.4" stroke-linecap="round"><rect x="3" y="8" width="9" height="9" rx="4"/><rect x="12" y="7" width="9" height="9" rx="4"/></svg><span>LangChain</span><svg viewBox="0 0 24 24" fill="#0B0B0F"><path d="M12 2a3 3 0 0 0-2.8 4.1A3 3 0 0 0 6 9a3 3 0 0 0 0 6 3 3 0 0 0 3.2 2.9A3 3 0 0 0 12 22a3 3 0 0 0 2.8-4.1A3 3 0 0 0 18 15a3 3 0 0 0 0-6 3 3 0 0 0-3.2-2.9A3 3 0 0 0 12 2z"/></svg><span>OpenAI</span></div></div>
+        <div class="tb-pcard reveal" style="transition-delay:.56s"><span class="tb-tag">MCP</span><div class="tb-pctitle">Tool-connected AI app</div><div class="tb-pcdesc">Wire models to real tools with Model Context Protocol.</div><div class="tb-pclogos"><svg viewBox="0 0 24 24" fill="none" stroke="#111827" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M9 3v5M15 3v5M7 8h10v4a5 5 0 0 1-10 0z"/><path d="M12 17v4"/></svg><span>MCP</span><svg viewBox="0 0 24 24" fill="#0B0B0F"><path d="M12 2a3 3 0 0 0-2.8 4.1A3 3 0 0 0 6 9a3 3 0 0 0 0 6 3 3 0 0 0 3.2 2.9A3 3 0 0 0 12 22a3 3 0 0 0 2.8-4.1A3 3 0 0 0 18 15a3 3 0 0 0 0-6 3 3 0 0 0-3.2-2.9A3 3 0 0 0 12 2z"/></svg><span>OpenAI</span></div></div>
+        <div class="tb-pcard reveal" style="transition-delay:.62s"><span class="tb-tag">CAPSTONE</span><div class="tb-pctitle">End-to-end deployed app</div><div class="tb-pcdesc">A portfolio-ready project you demo on demo day.</div><div class="tb-pclogos"><svg viewBox="0 0 24 24"><path fill="#FF4B4B" d="M3 12l7-9v6l8-6-5 8h6l-11 9v-6l-8 6z"/></svg><span>Streamlit</span><svg viewBox="0 0 24 24" fill="#181717"><path d="M12 2a10 10 0 0 0-3.2 19.5c.5.1.7-.2.7-.5v-1.7c-2.8.6-3.4-1.3-3.4-1.3-.5-1.1-1.1-1.4-1.1-1.4-.9-.6.1-.6.1-.6 1 .1 1.5 1 1.5 1 .9 1.5 2.3 1.1 2.9.8.1-.7.4-1.1.6-1.3-2.2-.3-4.6-1.1-4.6-4.9 0-1.1.4-2 1-2.7-.1-.3-.4-1.3.1-2.6 0 0 .8-.3 2.7 1a9.4 9.4 0 0 1 4.9 0c1.9-1.3 2.7-1 2.7-1 .5 1.3.2 2.3.1 2.6.6.7 1 1.6 1 2.7 0 3.8-2.4 4.6-4.6 4.9.4.3.7 1 .7 2v2.9c0 .3.2.6.7.5A10 10 0 0 0 12 2z"/></svg><span>GitHub</span></div></div>
+      </div>
+    </div>
+    <div class="tb-center">
+      <svg class="tb-road-svg" viewBox="0 0 1000 250" preserveAspectRatio="none">
+        <defs>
+          <linearGradient id="tbroadgrad" x1="0" y1="1" x2="1" y2="0"><stop offset="0" stop-color="#D7CCFF"/><stop offset="1" stop-color="#6D4CFF"/></linearGradient>
+        </defs>
+        <path d="M60,215 C200,215 230,130 330,95 C430,60 520,45 630,35 C760,23 850,18 940,15" fill="none" stroke="url(#tbroadgrad)" stroke-width="15" stroke-linecap="round" opacity=".55"/>
+        <path d="M60,215 C200,215 230,130 330,95 C430,60 520,45 630,35 C760,23 850,18 940,15" fill="none" stroke="#fff" stroke-width="1.6" stroke-dasharray="7 7" stroke-linecap="round" opacity=".8"/>
+      </svg>
+      <div class="tb-stop reveal" style="left:4%;top:86%;transition-delay:.2s">
+        <div class="tb-stopicon"><svg viewBox="0 0 24 24"><path d="M12 3c4 2 6 6 6 10l-3 2H9l-3-2c0-4 2-8 6-10z"/><path d="M9 15l-3 4M15 15l3 4M10 9a2 2 0 1 0 4 0 2 2 0 0 0-4 0"/></svg></div>
+        <div class="tb-stopcard"><span class="tb-badge">1</span><div class="tb-stoptitle">Learn the Right Stack</div><div class="tb-stopbody">Built on real tools used by top AI teams today.</div></div>
+      </div>
+      <div class="tb-stop reveal" style="left:27%;top:8%;transition-delay:.32s">
+        <div class="tb-stopicon"><svg viewBox="0 0 24 24"><circle cx="6" cy="7" r="2"/><circle cx="18" cy="7" r="2"/><circle cx="12" cy="17" r="2"/><path d="M7.7 8.3L11 15M16.3 8.3L13 15M8 7h8"/></svg></div>
+        <div class="tb-stopcard"><span class="tb-badge">2</span><div class="tb-stoptitle">Build Real Skills</div><div class="tb-stopbody">Go beyond tutorials. Build, experiment and ship with confidence.</div></div>
+      </div>
+      <div class="tb-stop reveal" style="left:80%;top:-3%;transition-delay:.44s">
+        <div class="tb-stopicon"><svg viewBox="0 0 24 24"><path d="M8 4h8v3a4 4 0 0 1-8 0z"/><path d="M8 4H5a3 3 0 0 0 3 5M16 4h3a3 3 0 0 1-3 5"/><path d="M12 11v4M9 19h6M10 19v-2h4v2"/></svg></div>
+        <div class="tb-stopcard"><span class="tb-badge">3</span><div class="tb-stoptitle">Ship. Showcase. Stand Out.</div><div class="tb-stopbody">Build a portfolio of shipped AI projects that gets you noticed and gets you callbacks.</div></div>
+      </div>
+    </div>
+  </div>
+  <div class="tb-banner reveal" style="transition-delay:.7s">
+    <span class="tb-bannericon"><svg viewBox="0 0 24 24"><path d="M12 3l2.6 5.9 6.4.6-4.8 4.3 1.4 6.3L12 17l-5.6 3.1 1.4-6.3-4.8-4.3 6.4-.6z"/></svg></span>
+    <span class="tb-bannertext">You finish with shipped, deployable projects - <b>the proof of skill that gets the callback.</b></span>
+    <span class="tb-growthicon"><svg viewBox="0 0 24 16"><path d="M2 14V9M8 14V6M14 14V10M20 14V2"/><path d="M15 2h5v5" stroke-linecap="round" stroke-linejoin="round"/></svg></span>
+  </div>
+  <div class="tb-companies reveal" style="transition-delay:.78s">
+    <div class="tb-companies-cap">The tools top companies trust. The skills they hire for.</div>
+    <div class="tb-companies-row">
+      <svg viewBox="0 0 48 48"><path fill="#FFC107" d="M43.6 20.5H42V20H24v8h11.3c-1.6 4.7-6.1 8-11.3 8-6.6 0-12-5.4-12-12s5.4-12 12-12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 12.9 4 4 12.9 4 24s8.9 20 20 20 20-8.9 20-20c0-1.3-.1-2.3-.4-3.5z"/><path fill="#FF3D00" d="M6.3 14.7l6.6 4.8C14.7 15.1 19 12 24 12c3.1 0 5.9 1.2 8 3.1l5.7-5.7C34 6.1 29.3 4 24 4 16.3 4 9.7 8.3 6.3 14.7z"/><path fill="#4CAF50" d="M24 44c5.2 0 9.9-2 13.4-5.2l-6.2-5.2C29.2 35.1 26.7 36 24 36c-5.2 0-9.6-3.3-11.3-7.9l-6.5 5C9.5 39.6 16.2 44 24 44z"/><path fill="#1976D2" d="M43.6 20.5H42V20H24v8h11.3c-.8 2.2-2.2 4.2-4.1 5.6l6.2 5.2C39.9 36.1 44 30.6 44 24c0-1.3-.1-2.3-.4-3.5z"/></svg>
+      <svg viewBox="0 0 24 24"><rect x="1" y="1" width="10" height="10" fill="#F25022"/><rect x="13" y="1" width="10" height="10" fill="#7FBA00"/><rect x="1" y="13" width="10" height="10" fill="#00A4EF"/><rect x="13" y="13" width="10" height="10" fill="#FFB900"/></svg>
+      <svg viewBox="0 0 40 22"><path fill="none" stroke="#FF9900" stroke-width="2.6" stroke-linecap="round" d="M4 9c8 7.5 23 7.5 32 1"/><path fill="#FF9900" d="M35.5 10.6l1.3-5.2 3.1 4.1z"/></svg>
+      <svg viewBox="0 0 24 24" fill="none" stroke="#0866FF" stroke-width="2.4"><path d="M7 8a4 4 0 0 0 0 8c2.5 0 3.7-1.8 5-4 1.3-2.2 2.5-4 5-4a4 4 0 0 1 0 8c-2.5 0-3.7-1.8-5-4-1.3-2.2-2.5-4-5-4z"/></svg>
+      <svg viewBox="0 0 24 24" fill="#0B0B0F"><path d="M12 2a3 3 0 0 0-2.8 4.1A3 3 0 0 0 6 9a3 3 0 0 0 0 6 3 3 0 0 0 3.2 2.9A3 3 0 0 0 12 22a3 3 0 0 0 2.8-4.1A3 3 0 0 0 18 15a3 3 0 0 0 0-6 3 3 0 0 0-3.2-2.9A3 3 0 0 0 12 2z"/></svg>
+      <svg viewBox="0 0 24 24"><circle cx="8" cy="9" r="4" fill="#39594D"/><circle cx="16" cy="8" r="3" fill="#D18EE2"/><circle cx="9" cy="16" r="3.5" fill="#FF7759"/></svg>
+      <span style="font-family:'Space Grotesk';font-weight:800;font-size:11px;letter-spacing:.05em;color:var(--tbdark)">ANTHROPIC</span>
+    </div>
+  </div>
+  <div class="tb-finalpill reveal" style="transition-delay:.84s"><div class="tb-finalpill-inner"><span class="tb-heart">&#9829;</span>Learn the real stack. Build real projects. Get hired.<span class="tb-sep">|</span>This is <span class="tb-hl2">your</span> AI career journey.</div></div>
+</div></div>
 </section>
 <section class="slide slide-mock-spotlight" data-sec="4">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">The part that gets you hired</span></div>
         <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,3.8vw,46px)">The bridge between learning it and landing the offer</h1>
-        <div class="hero-stats" style="margin-top:22px"><div class="hero-stat reveal" style="transition-delay:0.30s"><div class="hs-num">2</div><div class="hs-lab">live mock interviews</div><div class="hs-desc">with MAANG+ hiring managers - the same engineers who interview and hire candidates in the real world.</div></div><div class="hero-stat reveal" style="transition-delay:0.45s"><div class="hs-num">5</div><div class="hs-lab">application opportunities</div><div class="hs-desc">our Careers Team puts your profile forward for relevant openings when you meet the criteria.*</div></div></div>
+        <div class="hero-stats" style="margin-top:22px"><div class="hero-stat reveal" style="transition-delay:0.30s"><div class="hs-num">2</div><div class="hs-lab">Live Mock Interviews</div><div class="hs-desc">with MAANG+ hiring managers - the same engineers who interview and hire candidates in the real world.</div></div><div class="hero-stat reveal" style="transition-delay:0.40s"><div class="hs-num">5</div><div class="hs-lab">Application Opportunities</div><div class="hs-desc">our Careers Team puts your profile forward for relevant openings when you meet the criteria.*</div></div><div class="hero-stat reveal" style="transition-delay:0.50s"><div class="hs-num">1:1</div><div class="hs-lab">Talent500 Recruiter Connect</div><div class="hs-desc">a direct one-to-one introduction into Talent500&#x27;s hiring network.</div></div></div>
         <p class="mock-lead reveal" style="transition-delay:.6s;margin-top:20px;max-width:70ch">Knowing isn&#x27;t the same as getting hired. These two are the bridge - real interview practice, then real shots at real roles.</p>
         <ul class="clean small mock-support reveal" style="transition-delay:.7s"><li><span class="tick ok">✓</span>Unlimited AI mock interviews - practise between live rounds</li><li><span class="tick ok">✓</span>Recorded mock library - see how top candidates think</li><li><span class="tick ok">✓</span>AIQ Analyser - readiness score, skill-gap analysis &amp; roadmap</li><li><span class="tick ok">✓</span>AI resume analyser - sharpen how you present your impact</li></ul>
         <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">*Opportunities to apply, not a job guarantee. Knowing isn&#x27;t the same as getting hired - this is what turns learning into an offer.</p></div>
@@ -2273,9 +2382,9 @@ It&#x27;s about being seen for the right value.
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Premium learning, flexible payments</span></div>
         <h1 class="display reveal" style="transition-delay:.1s">One program. One transparent fee.</h1>
         <div class="price-hero reveal" style="transition-delay:.22s"><span class="price-strike">₹1,00,000</span><span class="price-now">₹70,000</span><span class="price-suffix">+ GST</span></div><div class="price-sub reveal" style="transition-delay:.28s">One-time program fee - no hidden add-ons, and you never pay it all at once.</div>
-        <div class="plangrid" style="margin-top:18px"><div class="plan reveal" style="transition-delay:0.35s"><div class="plname">Pay once</div><div class="plprice">₹70,000 + GST</div><div class="plnote">One-time program fee</div></div><div class="plan reveal" style="transition-delay:0.45s"><div class="plname">0% no-cost EMI</div><div class="plprice">From ₹5,834/mo</div><div class="plnote">Split over 12 months, no interest</div></div><div class="plan reveal" style="transition-delay:0.55s"><div class="plname">EMI partners</div><div class="plprice">Propelld · Eduvanz · InCred · HDFC · ICICI</div><div class="plnote">Pick the plan that fits you</div></div></div>
-        <ul class="clean small reveal" style="transition-delay:.5s;margin-top:16px"><li><span class="tick ok">✓</span>0% no-cost EMI - pay as little as ₹5,834/month over 12 months</li><li><span class="tick ok">✓</span>Plans of 3, 6 or 12 months through trusted financing partners</li><li><span class="tick ok">✓</span>Lifetime access to recordings · 6 months of career support</li></ul>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">Talk to your Program Advisor for the exact EMI plan and any scholarship you qualify for.</p></div>
+        <div class="plangrid" style="margin-top:12px"><div class="plan reveal" style="transition-delay:0.35s"><div class="plname">Pay once</div><div class="plprice">₹70,000 + GST</div><div class="plnote">One-time program fee</div></div><div class="plan reveal" style="transition-delay:0.45s"><div class="plname">0% no-cost EMI</div><div class="plprice">From ₹5,834/mo</div><div class="plnote">Split over 12 months, no interest</div></div><div class="plan reveal" style="transition-delay:0.55s"><div class="plname">EMI partners</div><div class="plprice">Propelld · Eduvanz · InCred · HDFC · ICICI</div><div class="plnote">Pick the plan that fits you</div></div></div>
+        <ul class="clean small reveal" style="transition-delay:.5s;margin-top:10px;gap:7px"><li><span class="tick ok">✓</span>0% no-cost EMI - pay as little as ₹5,834/month over 12 months</li><li><span class="tick ok">✓</span>Plans of 3, 6 or 12 months through trusted financing partners</li><li><span class="tick ok">✓</span>Lifetime access to recordings · 6 months of career support</li><li style="white-space:nowrap"><span class="tick ok">✓</span>1:1 Recruiter Connect with Talent500</li></ul>
+        <p class="sub reveal" style="transition-delay:.5s;margin-top:4px">Talk to your Program Advisor for the exact EMI plan and any scholarship you qualify for.</p></div>
 </section>
 <section class="slide slide-roi" data-sec="5">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Investment vs. the AI premium</span></div>
@@ -2350,7 +2459,7 @@ It&#x27;s about being seen for the right value.
 </section>
 </div>
 <div class="spine" id="spine"></div>
-<div class="nav"><span class="count"><b id="cur">1</b> / 40</span>
+<div class="nav"><span class="count"><b id="cur">1</b> / 39</span>
 <button id="prev" aria-label="Previous">‹</button><button id="next" aria-label="Next">›</button></div>
 <div class="hint"><span class="kbd">←</span><span class="kbd">→</span> navigate · <span class="kbd">F</span> fullscreen</div>
 <div class="frag-hint" id="fraghint"></div>
@@ -2359,7 +2468,7 @@ It&#x27;s about being seen for the right value.
   const slides=Array.from(document.querySelectorAll('.slide'));
   const N=slides.length;let cur=0,frag=0;
   const SECCOL={"0": "#2563EB", "1": "#DC2626", "2": "#D97706", "3": "#059669", "4": "#7C3AED", "5": "#EA580C"}, SECSOFT={"0": "rgba(37,99,235,.10)", "1": "rgba(220,38,38,.09)", "2": "rgba(217,119,6,.10)", "3": "rgba(5,150,105,.10)", "4": "rgba(124,58,237,.10)", "5": "rgba(234,88,12,.10)"};
-  const secOf=[0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 0, 0, 0];
+  const secOf=[0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 0, 0, 0];
   const sections=[['1','AI Moment'],['2','Reality Check'],['3','IK Advantage'],['4','Your Path'],['5','Get Started']];
   const pb=document.getElementById('phasebar');
   sections.forEach(([n,nm])=>{const e=document.createElement('span');e.className='pl';e.dataset.s=n;e.textContent=n+' '+nm;pb.appendChild(e);});
@@ -2397,8 +2506,11 @@ It&#x27;s about being seen for the right value.
   // undiscoverable on screen: no visible button, opened only by triple-clicking
   // anywhere on the deck (single/double clicks still navigate normally).
   const NOTES_KEY='ikDeckSpeakerNotes';
+  const NOTES_PREF_KEY='ikDeckSpeakerNotesPrefs';
   function loadAllNotes(){try{return JSON.parse(localStorage.getItem(NOTES_KEY)||'{}');}catch(e){return {};}}
   function saveNoteForSlide(i,text){const all=loadAllNotes();all[i]=text;try{localStorage.setItem(NOTES_KEY,JSON.stringify(all));}catch(e){}}
+  function loadPrefs(){try{return Object.assign({theme:'dark',fontSize:14.5,speed:1},JSON.parse(localStorage.getItem(NOTES_PREF_KEY)||'{}'));}catch(e){return {theme:'dark',fontSize:14.5,speed:1};}}
+  function savePrefs(p){try{localStorage.setItem(NOTES_PREF_KEY,JSON.stringify(p));}catch(e){}}
   let notesWin=null;
   function updateNotesWindow(){
     if(notesWin&&!notesWin.closed){
@@ -2413,33 +2525,76 @@ It&#x27;s about being seen for the right value.
   }
   function openNotesWindow(){
     if(notesWin&&!notesWin.closed){notesWin.focus();updateNotesWindow();return;}
-    notesWin=window.open('','ikPresenterNotes','width=440,height=640,left=80,top=80');
+    const prefs=loadPrefs();
+    notesWin=window.open('','ikPresenterNotes','width=480,height=680,left=80,top=80');
     if(!notesWin){alert('Please allow pop-ups to open speaker notes.');return;}
     notesWin.document.open();
-    notesWin.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Speaker Notes</title><style>'
-      +'*{box-sizing:border-box}body{margin:0;background:#12141C;min-height:100vh;font-family:Inter,Arial,sans-serif;display:flex;flex-direction:column}'
-      +'.topbar{padding:12px 18px;border-bottom:1px solid #262A38;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}'
-      +'.topbar b{font-family:\'Space Grotesk\',sans-serif;color:#fff;font-size:13px}'
-      +'.warn{color:#D8A34D;font-size:10.5px;font-family:Inter,sans-serif;text-align:right;max-width:190px;line-height:1.3}'
-      +'#notesTextarea{flex:1;min-height:200px;resize:none;background:#181B26;border:none;color:#E8EAF0;font-family:Inter,Arial,sans-serif;font-size:14.5px;line-height:1.6;padding:18px 20px;outline:none}'
-      +'#notesTextarea::placeholder{color:#5B6178}'
-      +'.ctrls{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:14px 20px;border-top:1px solid #262A38;flex-shrink:0}'
-      +'button{background:#20232F;border:1px solid #333849;color:#E8EAF0;border-radius:8px;padding:9px 16px;font-family:\'Space Grotesk\',sans-serif;font-size:13px;font-weight:600;cursor:pointer}'
-      +'button:hover{border-color:#5B6178}'
-      +'#npcount{font-family:\'Space Grotesk\',sans-serif;color:#7C8199;font-size:12px}'
+    notesWin.document.write('<!doctype html><html data-theme="'+prefs.theme+'"><head><meta charset="utf-8"><title>Speaker Notes</title><style>'
+      +':root{--bg:#12141C;--panel:#181B26;--text:#E8EAF0;--muted:#7C8199;--border:#262A38;--btnbg:#20232F;--btnborder:#333849;--warn:#D8A34D}'
+      +'html[data-theme="light"]{--bg:#F5F5F8;--panel:#FFFFFF;--text:#14161F;--muted:#6B7280;--border:#E3E4EB;--btnbg:#F0F1F5;--btnborder:#D7D9E3;--warn:#B45F06}'
+      +'*{box-sizing:border-box}body{margin:0;background:var(--bg);min-height:100vh;font-family:Inter,Arial,sans-serif;display:flex;flex-direction:column;transition:background .2s,color .2s}'
+      +'.topbar{padding:10px 16px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;flex-shrink:0;background:var(--panel)}'
+      +'.topbar b{font-family:\'Space Grotesk\',sans-serif;color:var(--text);font-size:13px}'
+      +'.warn{color:var(--warn);font-size:10px;font-family:Inter,sans-serif;text-align:right;max-width:170px;line-height:1.25}'
+      +'.toolbar{display:flex;flex-wrap:wrap;gap:6px;align-items:center;padding:8px 12px;border-bottom:1px solid var(--border);background:var(--panel);flex-shrink:0}'
+      +'.tgroup{display:flex;align-items:center;gap:3px;padding-right:8px;margin-right:2px;border-right:1px solid var(--border)}'
+      +'.tgroup:last-child{border-right:none}'
+      +'.tlabel{font-family:\'Space Grotesk\',sans-serif;font-size:10.5px;color:var(--muted);min-width:34px;text-align:center}'
+      +'#notesTextarea{flex:1;min-height:160px;resize:none;background:var(--panel);color:var(--text);font-family:Inter,Arial,sans-serif;font-size:14.5px;line-height:1.65;padding:18px 20px;outline:none;border:none;transition:background .2s,color .2s}'
+      +'#notesTextarea::placeholder{color:var(--muted)}'
+      +'.ctrls{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:12px 16px;border-top:1px solid var(--border);flex-shrink:0;background:var(--panel)}'
+      +'button{background:var(--btnbg);border:1px solid var(--btnborder);color:var(--text);border-radius:7px;padding:7px 12px;font-family:\'Space Grotesk\',sans-serif;font-size:12.5px;font-weight:600;cursor:pointer}'
+      +'button:hover{border-color:var(--muted)}'
+      +'button.iconbtn{padding:7px 10px}'
+      +'#npcount{font-family:\'Space Grotesk\',sans-serif;color:var(--muted);font-size:12px}'
       +'</style></head><body>'
       +'<div class="topbar"><b id="notesSlideLabel">Slide 1 / '+N+'</b><span class="warn">Presenter only - do not share this window</span></div>'
+      +'<div class="toolbar">'
+      +'<div class="tgroup"><button id="themeBtn" class="iconbtn">Theme</button></div>'
+      +'<div class="tgroup"><button id="fontDown" class="iconbtn">A-</button><span class="tlabel" id="fontLabel">15px</span><button id="fontUp" class="iconbtn">A+</button></div>'
+      +'<div class="tgroup"><button id="playBtn">Play</button><button id="speedDown" class="iconbtn">-</button><span class="tlabel" id="speedLabel">1.0x</span><button id="speedUp" class="iconbtn">+</button></div>'
+      +'</div>'
       +'<textarea id="notesTextarea" placeholder="Type your own notes for this slide. Saved automatically, per slide." spellcheck="true"></textarea>'
       +'<div class="ctrls"><button id="npPrev">&lsaquo; Prev</button><span id="npcount"></span><button id="npNext">Next &rsaquo;</button></div>'
       +'</body></html>');
     notesWin.document.close();
-    const ta=notesWin.document.getElementById('notesTextarea');
+    const doc=notesWin.document;
+    const ta=doc.getElementById('notesTextarea');
     ta.dataset.idx=cur;ta.value=loadAllNotes()[cur]||'';
     ta.addEventListener('input',()=>saveNoteForSlide(parseInt(ta.dataset.idx,10),ta.value));
-    const npPrev=notesWin.document.getElementById('npPrev');
-    const npNext=notesWin.document.getElementById('npNext');
+    const npPrev=doc.getElementById('npPrev');
+    const npNext=doc.getElementById('npNext');
     if(npPrev)npPrev.onclick=function(){prev();};
     if(npNext)npNext.onclick=function(){next();};
+    // Theme toggle
+    let theme=prefs.theme;
+    const themeBtn=doc.getElementById('themeBtn');
+    themeBtn.textContent=theme==='dark'?'Dark mode':'Light mode';
+    themeBtn.onclick=function(){
+      theme=theme==='dark'?'light':'dark';
+      doc.documentElement.setAttribute('data-theme',theme);
+      themeBtn.textContent=theme==='dark'?'Dark mode':'Light mode';
+      savePrefs(Object.assign(loadPrefs(),{theme:theme}));
+    };
+    // Font size
+    let fontSize=prefs.fontSize;
+    const fontLabel=doc.getElementById('fontLabel');
+    function applyFont(){ta.style.fontSize=fontSize+'px';fontLabel.textContent=Math.round(fontSize)+'px';savePrefs(Object.assign(loadPrefs(),{fontSize:fontSize}));}
+    doc.getElementById('fontDown').onclick=function(){fontSize=Math.max(11,fontSize-1.5);applyFont();};
+    doc.getElementById('fontUp').onclick=function(){fontSize=Math.min(32,fontSize+1.5);applyFont();};
+    applyFont();
+    // Teleprompter auto-scroll: Play/Pause, with adjustable speed
+    let scrollTimer=null,scrollSpeed=prefs.speed,playing=false;
+    const playBtn=doc.getElementById('playBtn');
+    const speedLabel=doc.getElementById('speedLabel');
+    function updateSpeedLabel(){speedLabel.textContent=scrollSpeed.toFixed(1)+'x';savePrefs(Object.assign(loadPrefs(),{speed:scrollSpeed}));}
+    function startScroll(){if(scrollTimer)return;scrollTimer=notesWin.setInterval(function(){ta.scrollTop+=scrollSpeed;},40);playing=true;playBtn.textContent='Pause';}
+    function stopScroll(){if(scrollTimer){notesWin.clearInterval(scrollTimer);scrollTimer=null;}playing=false;playBtn.textContent='Play';}
+    playBtn.onclick=function(){playing?stopScroll():startScroll();};
+    doc.getElementById('speedDown').onclick=function(){scrollSpeed=Math.max(0.2,+(scrollSpeed-0.2).toFixed(1));updateSpeedLabel();};
+    doc.getElementById('speedUp').onclick=function(){scrollSpeed=Math.min(5,+(scrollSpeed+0.2).toFixed(1));updateSpeedLabel();};
+    updateSpeedLabel();
+    notesWin.addEventListener('beforeunload',function(){stopScroll();});
     updateNotesWindow();
   }
   document.getElementById('next').onclick=()=>next();
