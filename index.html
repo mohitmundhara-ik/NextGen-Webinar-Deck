@@ -37,9 +37,9 @@ html,body{height:100%;background:var(--bg);color:var(--ink);font-family:'Inter',
 .metric,.buildcard,.skill-pill,.ins,.tcard,.uplevel-card,.fitcard,.glance-card,.vh-pill,.curr-card,.plan,.reason,.persona,.trapcard,.agenda-item,.newscard,.jd-card,.mind-row{transition:transform .25s cubic-bezier(.2,.7,.2,1),box-shadow .25s,border-color 1s}
 .metric:hover,.buildcard:hover,.skill-pill:hover,.ins:hover,.tcard:hover,.uplevel-card:hover,.fitcard:hover,.glance-card:hover,.vh-pill:hover,.curr-card:hover,.plan:hover,.newscard:hover,.jd-card:hover,.mind-row:hover{box-shadow:0 18px 40px -16px rgba(20,26,44,.32)}
 /* oversized quote callout */
-.quote-callout{position:relative;max-width:30ch;padding-left:14px}
-.quote-mark{position:absolute;top:-.42em;left:-.1em;font-family:Georgia,serif;font-size:clamp(90px,13vw,170px);line-height:1;color:var(--accent);opacity:.14;pointer-events:none;z-index:0}
-.quote-big{position:relative;z-index:1;font-family:'Inter';font-style:italic;font-weight:500;font-size:clamp(26px,3.6vw,46px);line-height:1.25;color:var(--ink)}
+.quote-callout{position:relative;max-width:74ch;padding-left:0;margin:0 auto;text-align:center}
+.quote-mark{position:absolute;top:-.5em;left:50%;transform:translateX(-50%);font-family:Georgia,serif;font-size:clamp(90px,13vw,170px);line-height:1;color:var(--accent);opacity:.14;pointer-events:none;z-index:0}
+.quote-big{position:relative;z-index:1;font-family:'Inter';font-style:italic;font-weight:500;font-size:clamp(30px,4.4vw,58px);line-height:1.22;color:var(--ink)}
 .quote-attr{position:relative;z-index:1;color:var(--muted);font-size:clamp(14px,1.6vw,18px);margin-top:22px;font-weight:500}
 .slide-host.active~*,body:has(.slide-host.active) .design-layer{opacity:0;transition:opacity .3s}
 .grid-bg{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.18;
@@ -263,11 +263,11 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .mstep .md,.phase-step .phd{color:var(--muted);font-size:13px;line-height:1.45;font-weight:500}
 .card.pad{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px}
 .cardh{font-family:'Space Grotesk';font-size:14px;text-transform:uppercase;letter-spacing:.06em;color:var(--accent);margin-bottom:12px;transition:color 1s}
-.tcards{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
-.tcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:20px}
+.tcards{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.tcard{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 16px}
 .tcard.ep{border-color:var(--accent);background:var(--accent-soft);transition:all 1s;grid-column:1/-1}
-.tcard .quote{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-style:italic;font-size:clamp(15px,1.65vw,19px);line-height:1.55;font-weight:500;color:var(--ink)}
-.tcard .who{margin-top:14px;display:flex;align-items:center;gap:12px}
+.tcard .quote{font-family:'Inter',system-ui,-apple-system,'Segoe UI',sans-serif;font-style:italic;font-size:clamp(13.5px,1.45vw,17px);line-height:1.42;font-weight:500;color:var(--ink)}
+.tcard .who{margin-top:10px;display:flex;align-items:center;gap:12px}
 .tcard .who-av{width:42px;height:42px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-family:'Space Grotesk';font-weight:700;font-size:15px;flex-shrink:0;transition:background 1s;box-shadow:0 2px 10px -3px var(--accent)}
 .tcard .who-meta{display:flex;flex-direction:column;line-height:1.3}
 .tcard .who-meta b{font-family:'Space Grotesk';font-size:15px}
@@ -302,18 +302,32 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .plan .plname{font-family:'Space Grotesk';font-weight:600;font-size:16px;line-height:1.25}
 .plan .plprice{font-family:'Space Grotesk';font-weight:700;font-size:clamp(28px,4vw,44px);color:var(--accent);margin:12px 0 4px;transition:color 1s}
 .plan .plnote{color:var(--muted);font-size:13px;font-weight:500}
-.runway{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.runstep{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px 18px;flex:1;min-width:120px}
-.runstep .rst{font-family:'Space Grotesk';font-weight:600;font-size:15px;color:var(--accent);transition:color 1s}
-.runstep .rsd{color:var(--muted);font-size:13px;margin-top:4px;font-weight:500}
-.runarrow{color:var(--accent);font-weight:700;transition:color 1s}
-.reflection{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--accent);border-radius:12px;padding:22px;margin-top:16px;transition:border-color 1s}
-.reflection .rquote{font-size:clamp(16px,1.9vw,22px);line-height:1.45}
-.reflection .rattr{color:var(--muted);font-size:13.5px;margin-top:12px;font-family:'Space Grotesk';font-weight:500}
+.wn-steps{display:flex;align-items:stretch;gap:2px}
+.wn-step{flex:1;background:#fff;border:1px solid var(--line);border-radius:18px;padding:18px 16px;box-shadow:0 10px 26px -18px rgba(20,26,44,.18);display:flex;flex-direction:column;gap:9px;transition:transform .3s cubic-bezier(.2,.7,.2,1),box-shadow .3s}
+.wn-step:hover{transform:translateY(-3px);box-shadow:0 18px 36px -18px rgba(20,26,44,.26)}
+.wn-icon{width:50px;height:50px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;transition:background 1s}
+.wn-icon svg{width:24px;height:24px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke 1s}
+.wn-title{font-family:'Space Grotesk';font-weight:800;font-size:16px;color:var(--accent);transition:color 1s}
+.wn-desc{font-family:'Inter';font-size:12.5px;color:var(--muted);line-height:1.4;font-weight:500}
+.wn-chev{width:32px;height:32px;border-radius:50%;background:#fff;border:1px solid var(--line);display:flex;align-items:center;justify-content:center;flex-shrink:0;align-self:center;margin:0 -14px;z-index:2;box-shadow:0 4px 10px -4px rgba(20,26,44,.18)}
+.wn-chev svg{width:15px;height:15px;stroke:var(--accent);fill:none;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:stroke 1s}
+.wn-testi{margin-top:16px;background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:16px;padding:18px 24px;position:relative;display:flex;align-items:flex-start;gap:16px;box-shadow:0 10px 26px -18px rgba(20,26,44,.16);overflow:hidden;transition:border-color 1s}
+.wn-qmark{font-family:Georgia,serif;font-size:56px;color:var(--accent-soft);line-height:1;position:absolute;top:2px;left:14px;z-index:0;transition:color 1s}
+.wn-tcontent{flex:1;position:relative;z-index:1;padding-left:28px}
+.wn-tquote{font-family:'Inter';font-style:italic;font-size:14.5px;line-height:1.55;color:var(--ink);font-weight:500}
+.wn-tfoot{display:flex;align-items:center;gap:10px;margin-top:12px}
+.wn-tavatar{width:36px;height:36px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 1s}
+.wn-tavatar svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.8;transition:stroke 1s}
+.wn-tattr{font-family:'Inter';font-size:12px;color:var(--muted);font-weight:600}
+.wn-stars{position:absolute;top:18px;right:22px;display:flex;gap:2px;z-index:1}
+.wn-stars svg{width:15px;height:15px;fill:var(--accent);transition:fill 1s}
+.wn-bottom{margin-top:12px;display:flex;align-items:center;gap:13px}
+.wn-clock{width:38px;height:38px;border-radius:50%;background:var(--accent-soft);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:background 1s}
+.wn-clock svg{width:19px;height:19px;stroke:var(--accent);fill:none;stroke-width:1.8;transition:stroke 1s}
 .nextsteps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
 .nextflow{display:flex;align-items:stretch;gap:6px}
 .nextflow .nstep{flex:1;flex-direction:column;align-items:flex-start;gap:12px;background:var(--surface);border:1px solid var(--line);border-radius:16px;padding:26px 24px;box-shadow:0 4px 18px -10px rgba(20,26,44,.2);border-top:4px solid var(--accent)}
-.nextflow .nn{width:46px;height:46px;border-radius:13px;background:var(--accent);color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px -4px var(--accent);transition:background 1s}
+.nextflow .nn{width:46px;height:46px;border-radius:13px;background:var(--accent);color:#fff;font-family:'Space Grotesk';font-weight:700;font-size:22px;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 14px -4px var(--accent);transition:background 1s;margin-bottom:8px}
 .nextflow .nt{font-family:'Space Grotesk';font-weight:700;font-size:clamp(16px,2vw,21px);margin-bottom:6px}
 .nextflow .nd{color:var(--muted);font-size:14px;line-height:1.5;font-weight:500}
 .nstep-conn{display:flex;align-items:center;justify-content:center;flex:0 0 30px}
@@ -993,7 +1007,7 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 /* ============ unified "At a Glance" design system (host slide) ============ */
 .slide-host .host2{grid-template-columns:1.05fr 1fr 1fr}
 .gpanel{position:relative;display:flex;flex-direction:column;justify-content:flex-start;
-  padding:clamp(34px,7vh,84px) clamp(22px,2.5vw,38px) clamp(22px,4vh,44px);
+  padding:clamp(24px,7vh,84px) clamp(22px,2.5vw,38px) clamp(18px,4vh,44px);
   background:linear-gradient(180deg,#FCFDFF,#F2F5FC);border-left:1px solid #E5EAF3}
 .gpanel:first-child{border-left:none}
 .slide.slide-host{overflow-y:auto}
@@ -1377,7 +1391,9 @@ body:has(.slide-perpost.active) .design-layer,body:has(.slide-perpost.active) .g
 @media (max-width:900px){.rr-grid2{grid-template-columns:1fr}}
 .slide-toolbuild .slide-inner{max-width:1780px;width:96%}
 .tb-wrap{position:relative;width:100%;--tbp:#6D4CFF;--tbp-lt:#F2ECFF;--tbp-bd:#D7CCFF;--tbdark:#111827;--tbline:#E6E6F2;--tbmuted:#6B7280}
-.tb-top{position:relative;display:grid;grid-template-columns:1fr 190px 1.12fr;gap:18px;align-items:stretch;z-index:3;padding:22px 0 26px}
+.tb-top{position:relative;display:grid;grid-template-columns:1fr 190px 1.12fr;gap:18px;align-items:stretch;z-index:3;padding:22px 0 32px}
+.tb-racetrack{position:absolute;left:6px;right:6px;bottom:4px;height:9px;border-radius:6px;background:linear-gradient(90deg,var(--tbp-lt),var(--tbp) 50%,var(--tbp-lt));opacity:.4;z-index:0}
+.tb-racetrack::before{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(90deg,#fff 0 9px,transparent 9px 18px);opacity:.65;border-radius:6px}
 .tb-middle{position:relative;display:flex;flex-direction:column;justify-content:space-between;align-items:center;padding:6px 0}
 .tb-roadline{position:absolute;left:50%;top:8px;bottom:8px;width:5px;transform:translateX(-50%);background:linear-gradient(180deg,#D7CCFF,#6D4CFF);border-radius:6px;z-index:0}
 .tb-roadline::after{content:"";position:absolute;inset:0;background-image:repeating-linear-gradient(180deg,#fff,#fff 7px,transparent 7px 15px);opacity:.75;border-radius:6px}
@@ -2182,7 +2198,7 @@ It&#x27;s about being seen for the right value.
 <section class="slide slide-testimonials" data-sec="3">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">What learners say</span></div>
         <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,4vw,46px)">In the words of IK learners</h1>
-        <div class="tcards" style="margin-top:18px"><div class="tcard reveal" style="transition-delay:0.25s"><div class="quote">&quot;The System Design curriculum is an exceptional resource for building a strong foundation in scalable systems - valuable not just for interviews but real-world applications.&quot;</div><div class="who"><div class="who-av">AA</div><div class="who-meta"><b>Ashish Agarwal</b><span class="who-tag">Early Engineering</span><span class="who-role">Software Engineer, LSEG (London Stock Exchange Group)</span></div></div></div><div class="tcard reveal" style="transition-delay:0.35s"><div class="quote">&quot;The sessions covered everything from fundamentals to advanced topics. The interactive format with real-world examples and hands-on exercises made the learning very effective.&quot;</div><div class="who"><div class="who-av">SK</div><div class="who-meta"><b>Santhosh KR</b><span class="who-tag">Early Engineering</span><span class="who-role">NPhase Energy</span></div></div></div><div class="tcard reveal" style="transition-delay:0.45s"><div class="quote">&quot;Coming from a non-coding background, the step-by-step approach and structured coding practice helped me understand concepts clearly and prepare better for placements.&quot;</div><div class="who"><div class="who-av">NC</div><div class="who-meta"><b>Non-coding background</b><span class="who-tag">Early-career switcher</span><span class="who-role">Placement-focused track</span></div></div></div><div class="tcard reveal" style="transition-delay:0.55s"><div class="quote">&quot;Coming from an electronics background, I needed strong CS fundamentals for AI/ML roles. The curated problem sets and clear methodology reinforced concepts effectively.&quot;</div><div class="who"><div class="who-av">EA</div><div class="who-meta"><b>Electronics to AI/ML</b><span class="who-tag">Early-career switcher</span><span class="who-role">Electronics to AI/ML transition</span></div></div></div><div class="tcard ep reveal" style="transition-delay:.6s"><div class="eptag">8+ YoE perspective</div><div class="quote">&quot;The algorithms content gave me clear problem-solving patterns, and the system design modules gave me a structured way to approach designs - it significantly improved my confidence.&quot;</div><div class="who"><div class="who-av">GN</div><div class="who-meta"><b>Ganesh Narayanamurthy</b><span class="who-role">Software Engineering track</span></div></div></div></div></div>
+        <div class="tcards" style="margin-top:10px"><div class="tcard reveal" style="transition-delay:0.25s"><div class="quote">&quot;The System Design curriculum is an exceptional resource for building a strong foundation in scalable systems - valuable not just for interviews but real-world applications.&quot;</div><div class="who"><div class="who-av">AA</div><div class="who-meta"><b>Ashish Agarwal</b><span class="who-tag">Early Engineering</span><span class="who-role">Software Engineer, LSEG (London Stock Exchange Group)</span></div></div></div><div class="tcard reveal" style="transition-delay:0.35s"><div class="quote">&quot;The sessions covered everything from fundamentals to advanced topics. The interactive format with real-world examples and hands-on exercises made the learning very effective.&quot;</div><div class="who"><div class="who-av">SK</div><div class="who-meta"><b>Santhosh KR</b><span class="who-tag">Early Engineering</span><span class="who-role">NPhase Energy</span></div></div></div><div class="tcard reveal" style="transition-delay:0.45s"><div class="quote">&quot;Coming from a non-coding background, the step-by-step approach and structured coding practice helped me understand concepts clearly and prepare better for placements.&quot;</div><div class="who"><div class="who-av">NC</div><div class="who-meta"><b>Non-coding background</b><span class="who-tag">Early-career switcher</span><span class="who-role">Placement-focused track</span></div></div></div><div class="tcard reveal" style="transition-delay:0.55s"><div class="quote">&quot;Coming from an electronics background, I needed strong CS fundamentals for AI/ML roles. The curated problem sets and clear methodology reinforced concepts effectively.&quot;</div><div class="who"><div class="who-av">EA</div><div class="who-meta"><b>Electronics to AI/ML</b><span class="who-tag">Early-career switcher</span><span class="who-role">Electronics to AI/ML transition</span></div></div></div><div class="tcard ep reveal" style="transition-delay:.6s"><div class="eptag">8+ YoE perspective</div><div class="quote">&quot;The algorithms content gave me clear problem-solving patterns, and the system design modules gave me a structured way to approach designs - it significantly improved my confidence.&quot;</div><div class="who"><div class="who-av">GN</div><div class="who-meta"><b>Ganesh Narayanamurthy</b><span class="who-role">Software Engineering track</span></div></div></div></div></div>
 </section>
 <section class="slide slide-alumni2" data-sec="3">
 <div class="slide-inner"><div class="as-wrap">
@@ -2271,6 +2287,7 @@ It&#x27;s about being seen for the right value.
 <section class="slide slide-toolbuild" data-sec="4">
 <div class="slide-inner"><div class="tb-wrap">
   <div class="tb-top">
+    <div class="tb-racetrack"></div>
     <div class="tb-left">
       <span class="tb-pill reveal">Built on the production AI stack</span>
       <h1 class="tb-h1 reveal" style="transition-delay:.08s">Master the exact tools<br>the <span class="tb-hl">job</span> asks for</h1>
@@ -2460,23 +2477,9 @@ It&#x27;s about being seen for the right value.
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Premium learning, flexible payments</span></div>
         <h1 class="display reveal" style="transition-delay:.1s">One program. One transparent fee.</h1>
         <div class="price-hero reveal" style="transition-delay:.22s"><span class="price-strike">₹1,00,000</span><span class="price-now">₹70,000</span><span class="price-suffix">+ GST</span></div><div class="price-sub reveal" style="transition-delay:.28s">One-time program fee - no hidden add-ons, and you never pay it all at once.</div>
-        <div class="plangrid" style="margin-top:12px"><div class="plan reveal" style="transition-delay:0.35s"><div class="plname">Pay once</div><div class="plprice">₹70,000 + GST</div><div class="plnote">One-time program fee</div></div><div class="plan reveal" style="transition-delay:0.45s"><div class="plname">0% no-cost EMI</div><div class="plprice">From ₹5,834/mo</div><div class="plnote">Split over 12 months, no interest</div></div><div class="plan reveal" style="transition-delay:0.55s"><div class="plname">EMI partners</div><div class="plprice">Propelld · Eduvanz · InCred · HDFC · ICICI</div><div class="plnote">Pick the plan that fits you</div></div></div>
+        <div class="plangrid" style="margin-top:12px"><div class="plan reveal" style="transition-delay:0.35s"><div class="plname">Pay once</div><div class="plprice">₹70,000 + GST</div><div class="plnote">One-time program fee</div></div><div class="plan reveal" style="transition-delay:0.45s"><div class="plname">0% no-cost EMI</div><div class="plprice">From ₹5,834/mo</div><div class="plnote">Split over 12 months, no interest</div></div><div class="plan reveal" style="transition-delay:0.55s"><div class="plname">EMI partners</div><div class="plprice">Propelld · HDFC · ICICI</div><div class="plnote">Pick the plan that fits you</div></div></div>
         <ul class="clean small reveal" style="transition-delay:.5s;margin-top:10px;gap:7px"><li><span class="tick ok">✓</span>0% no-cost EMI - pay as little as ₹5,834/month over 12 months</li><li><span class="tick ok">✓</span>Plans of 3, 6 or 12 months through trusted financing partners</li><li><span class="tick ok">✓</span>Lifetime access to recordings · 6 months of career support</li><li style="white-space:nowrap"><span class="tick ok">✓</span>1:1 Recruiter Connect with Talent500</li></ul>
         <p class="sub reveal" style="transition-delay:.5s;margin-top:4px">Talk to your Program Advisor for the exact EMI plan and any scholarship you qualify for.</p></div>
-</section>
-<section class="slide slide-roi" data-sec="5">
-<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Investment vs. the AI premium</span></div>
-        <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,4vw,46px)">One fee now, against the market&#x27;s AI premium</h1>
-        <div class="oppo reveal" style="transition-delay:.3s;margin-top:20px">
-          <div class="lane now"><h4>Your investment</h4>
-            <div class="price-hero" style="margin-top:2px"><span class="price-now" style="font-size:clamp(34px,5.5vw,60px)">₹70,000</span><span class="price-suffix">+ GST</span></div>
-            <ul class="clean small" style="margin-top:12px"><li><span class="tick ok">✓</span>Or 0% no-cost EMI from ₹5,834/month</li><li><span class="tick ok">✓</span>One-time, all-inclusive program fee</li><li><span class="tick ok">✓</span>Lifetime access to recordings + 6 months of support</li></ul>
-          </div>
-          <div class="lane now"><h4>The market&#x27;s AI premium (indicative)</h4>
-            <ul class="clean small" style="margin-top:2px"><li><span class="tick ok">✓</span>AI-enabled freshers: ₹6-12 LPA vs ₹4-7 LPA without AI</li><li><span class="tick ok">✓</span>+40-70% salary premium for AI skills at entry level</li><li><span class="tick ok">✓</span>71% of hiring managers prefer AI-skilled candidates</li><li><span class="tick ok">✓</span>Premium rising: 18% (2024) to 56% projected (2026)</li></ul>
-          </div>
-        </div>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">Salary ranges are indicative 2026 market data, not a guarantee of outcomes. Source: Microsoft + LinkedIn, market reports (2026).</p></div>
 </section>
 <section class="slide slide-emi-calc" data-sec="5">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Try it - build your plan</span></div>
@@ -2501,15 +2504,41 @@ It&#x27;s about being seen for the right value.
         </div>
         <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">The program fee is fixed at ₹70,000. Drag the tenure to see your 0% no-cost monthly EMI. Your Program Advisor confirms the exact plan.</p></div>
 </section>
+<section class="slide slide-roi" data-sec="5">
+<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Investment vs. the AI premium</span></div>
+        <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,4vw,46px)">One fee now, against the market&#x27;s AI premium</h1>
+        <div class="oppo reveal" style="transition-delay:.3s;margin-top:20px">
+          <div class="lane now"><h4>Your investment</h4>
+            <div class="price-hero" style="margin-top:2px"><span class="price-now" style="font-size:clamp(34px,5.5vw,60px)">₹70,000</span><span class="price-suffix">+ GST</span></div>
+            <ul class="clean small" style="margin-top:12px"><li><span class="tick ok">✓</span>Or 0% no-cost EMI from ₹5,834/month</li><li><span class="tick ok">✓</span>One-time, all-inclusive program fee</li><li><span class="tick ok">✓</span>Lifetime access to recordings + 6 months of support</li></ul>
+          </div>
+          <div class="lane now"><h4>The market&#x27;s AI premium (indicative)</h4>
+            <ul class="clean small" style="margin-top:2px"><li><span class="tick ok">✓</span>AI-enabled freshers: ₹6-12 LPA vs ₹4-7 LPA without AI</li><li><span class="tick ok">✓</span>+40-70% salary premium for AI skills at entry level</li><li><span class="tick ok">✓</span>71% of hiring managers prefer AI-skilled candidates</li><li><span class="tick ok">✓</span>Premium rising: 18% (2024) to 56% projected (2026)</li></ul>
+          </div>
+        </div>
+        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">Salary ranges are indicative 2026 market data, not a guarantee of outcomes. Source: Microsoft + LinkedIn, market reports (2026).</p></div>
+</section>
 <section class="slide slide-why-now" data-sec="5">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Why start now?</span></div>
-        <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,4vw,46px)">A 14-week runway to the next hiring wave</h1>
-        <div class="runway reveal" style="transition-delay:.3s;margin-top:18px"><div class="runstep reveal" style="transition-delay:0.25s"><div class="rst">AI Learning</div><div class="rsd">Python, DSA, Agentic AI</div></div><span class=runarrow>›</span><div class="runstep reveal" style="transition-delay:0.35s"><div class="rst">Built Projects</div><div class="rsd">Portfolio capstone</div></div><span class=runarrow>›</span><div class="runstep reveal" style="transition-delay:0.45s"><div class="rst">Interview Prep</div><div class="rsd">RAG, mocks, system rounds</div></div><span class=runarrow>›</span><div class="runstep reveal" style="transition-delay:0.55s"><div class="rst">Career Support</div><div class="rsd">Resume, applications, offers</div></div></div>
-        <div class="reflection reveal" style="transition-delay:.45s">
-          <div class="rquote serif-it">&quot;I kept telling myself I&#x27;d start once things settled. An AI-builder opening came up that I was perfect for - but I wasn&#x27;t interview-ready, and I missed it. If you&#x27;re early in your career, the time to build is now.&quot;</div>
-          <div class="rattr">Early-career engineer · 2 YoE</div>
+        <h1 class="display reveal" style="transition-delay:.1s;font-size:clamp(26px,4vw,46px)">A <span class="lede-hl">14-week</span> runway to the next hiring wave</h1>
+        <div class="wn-steps" style="margin-top:20px">
+          <div class="wn-step reveal" style="transition-delay:0.22s"><div class="wn-icon"><svg viewBox="0 0 24 24"><path d="M4 5c2-1 5-1 8 0v14c-3-1-6-1-8 0z"/><path d="M20 5c-2-1-5-1-8 0v14c3-1 6-1 8 0z"/></svg></div><div class="wn-title">AI Learning</div><div class="wn-desc">Python, DSA,<br>Agentic AI</div></div>
+          <span class="wn-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+          <div class="wn-step reveal" style="transition-delay:0.29s"><div class="wn-icon"><svg viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M9 9l-3 3 3 3M15 9l3 3-3 3"/></svg></div><div class="wn-title">Built Projects</div><div class="wn-desc">Portfolio<br>capstone</div></div>
+          <span class="wn-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+          <div class="wn-step reveal" style="transition-delay:0.36s"><div class="wn-icon"><svg viewBox="0 0 24 24"><rect x="5" y="4" width="14" height="17" rx="2"/><path d="M9 3h6v3H9z"/><path d="M8 11l2 2 4-4M8 16h6"/></svg></div><div class="wn-title">Interview Prep</div><div class="wn-desc">RAG, mocks,<br>system rounds</div></div>
+          <span class="wn-chev"><svg viewBox="0 0 24 24"><path d="M9 6l6 6-6 6"/></svg></span>
+          <div class="wn-step reveal" style="transition-delay:0.43s"><div class="wn-icon"><svg viewBox="0 0 24 24"><path d="M4 13v-1a8 8 0 0 1 16 0v1"/><rect x="3" y="13" width="4" height="6" rx="1.5"/><rect x="17" y="13" width="4" height="6" rx="1.5"/><path d="M19 19v1a2 2 0 0 1-2 2h-3"/></svg></div><div class="wn-title">Career Support</div><div class="wn-desc">Resume, applications,<br>offers</div></div>
         </div>
-        <p class="sub reveal" style="transition-delay:.5s;margin-top:20px">The next cohort starts soon and seats are limited. Start now, be interview-ready for the next wave of AI hiring.</p></div>
+        <div class="wn-testi reveal" style="transition-delay:.5s">
+          <span class="wn-qmark">&#8220;</span>
+          <div class="wn-tcontent">
+            <div class="wn-tquote">I kept telling myself I&#x27;d start once things settled. An AI-builder opening came up that I was perfect for - but I wasn&#x27;t interview-ready, and I missed it. If you&#x27;re early in your career, the time to build is now.</div>
+            <div class="wn-tfoot"><span class="wn-tavatar"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-3.3 3.6-6 8-6s8 2.7 8 6"/></svg></span><span class="wn-tattr">Early-career engineer &middot; 2 YoE</span></div>
+          </div>
+          <span class="wn-stars"><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.9 1.3 7-6.1-3.5-6.1 3.5 1.3-7L2 9.3l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.9 1.3 7-6.1-3.5-6.1 3.5 1.3-7L2 9.3l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.9 1.3 7-6.1-3.5-6.1 3.5 1.3-7L2 9.3l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.9 1.3 7-6.1-3.5-6.1 3.5 1.3-7L2 9.3l7-.8z"/></svg><svg viewBox="0 0 24 24"><path d="M12 2l3 6.5 7 .8-5.2 4.9 1.3 7-6.1-3.5-6.1 3.5 1.3-7L2 9.3l7-.8z"/></svg></span>
+        </div>
+        <div class="wn-bottom reveal" style="transition-delay:.58s"><span class="wn-clock"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg></span><p class="sub" style="margin:0">The next cohort starts soon and seats are limited. Start now, <span class="lede-hl">be interview-ready</span> for the next wave of AI hiring.</p></div></div>
 </section>
 <section class="slide slide-next-steps" data-sec="5">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Your next steps</span></div>
@@ -2517,7 +2546,7 @@ It&#x27;s about being seen for the right value.
         <div class="nextflow" style="margin-top:26px"><div class="nstep reveal" style="transition-delay:0.30s"><div class="nn">1</div><div class="nstep-body"><div class="nt">Talk to your Program Advisor</div><div class="nd">A quick call to understand your goals. No commitment required yet.</div></div></div><div class="nstep-conn reveal" style="transition-delay:0.37s"><span class="nchev">›</span></div><div class="nstep reveal" style="transition-delay:0.44s"><div class="nn">2</div><div class="nstep-body"><div class="nt">Get your personalised plan</div><div class="nd">See your EMI options and a roadmap mapped to your target roles.</div></div></div><div class="nstep-conn reveal" style="transition-delay:0.51s"><span class="nchev">›</span></div><div class="nstep reveal" style="transition-delay:0.58s"><div class="nn">3</div><div class="nstep-body"><div class="nt">Start building</div><div class="nd">Begin your 14-week journey to become an AI Builder.</div></div></div></div></div>
 </section>
 <section class="slide slide-quote" data-sec="0">
-<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">One last thought</span></div>
+<div class="slide-inner" style="text-align:center"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">One last thought</span></div>
         <div class="quote-callout reveal" style="transition-delay:.15s">
           <span class="quote-mark">“</span>
           <h1 class="quote-big serif-it">The biggest risk isn&#x27;t investing in yourself. It&#x27;s staying where you are while the market moves on.</h1>
