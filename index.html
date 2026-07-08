@@ -851,17 +851,6 @@ ul.clean li .tick{color:var(--accent);font-family:'Space Grotesk';font-weight:70
 .nav{position:fixed;right:24px;bottom:22px;z-index:40;display:flex;gap:9px;align-items:center}
 .nav button{width:46px;height:46px;border-radius:11px;background:var(--surface);border:1px solid var(--line);color:var(--ink);font-size:19px;cursor:pointer;transition:all .2s;display:flex;align-items:center;justify-content:center}
 .nav button:hover{border-color:var(--accent);color:var(--accent)}
-.nav .notesbtn{width:auto;padding:0 14px;font-size:13px;font-family:'Space Grotesk';font-weight:600;gap:6px}
-.nav .notesbtn svg{width:16px;height:16px;stroke:currentColor;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
-.notes-panel{position:fixed;left:50%;bottom:22px;transform:translate(-50%,140%);width:min(720px,92vw);max-height:46vh;background:#12141C;border:1px solid #2A2F3D;border-radius:16px;box-shadow:0 30px 70px -20px rgba(0,0,0,.55);z-index:60;display:flex;flex-direction:column;opacity:0;pointer-events:none;transition:transform .35s cubic-bezier(.2,.8,.25,1),opacity .3s ease}
-.notes-panel.open{transform:translate(-50%,0);opacity:1;pointer-events:auto}
-.notes-panel-head{display:flex;align-items:center;justify-content:space-between;padding:12px 16px;border-bottom:1px solid #262A38;flex-shrink:0}
-.notes-panel-title{font-family:'Space Grotesk',sans-serif;font-size:12.5px;font-weight:700;color:#C6CAD8;letter-spacing:.01em}
-.notes-close{background:none;border:none;color:#8A90A6;font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
-.notes-close:hover{color:#fff}
-.notes-textarea{flex:1;min-height:140px;resize:vertical;background:#181B26;border:none;color:#E8EAF0;font-family:'Inter',sans-serif;font-size:14.5px;line-height:1.55;padding:14px 16px;outline:none}
-.notes-textarea::placeholder{color:#5B6178}
-.notes-panel-warn{font-family:'Inter',sans-serif;font-size:10.5px;line-height:1.4;color:#D8A34D;background:rgba(217,119,6,.14);padding:9px 16px;border-top:1px solid #262A38;flex-shrink:0}
 .nav .count{font-family:'JetBrains Mono';font-size:12.5px;color:var(--muted);margin-right:5px}
 .nav .count b{color:var(--ink)}
 .hint{position:fixed;left:24px;bottom:22px;z-index:40;font-family:'JetBrains Mono';font-size:11.5px;color:var(--muted);opacity:.6}
@@ -2362,18 +2351,9 @@ It&#x27;s about being seen for the right value.
 </div>
 <div class="spine" id="spine"></div>
 <div class="nav"><span class="count"><b id="cur">1</b> / 40</span>
-<button id="notesBtn" class="notesbtn" aria-label="Toggle speaker notes" title="Toggle your speaker notes. Note: this panel is part of the page - if you share your whole tab or window while it is open, your audience sees it too."><svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><path d="M8 8h8M8 12h8M8 16h5"/></svg>Notes</button>
 <button id="prev" aria-label="Previous">‹</button><button id="next" aria-label="Next">›</button></div>
-<div class="hint"><span class="kbd">←</span><span class="kbd">→</span> navigate · <span class="kbd">F</span> fullscreen · <span class="kbd">N</span> notes</div>
+<div class="hint"><span class="kbd">←</span><span class="kbd">→</span> navigate · <span class="kbd">F</span> fullscreen</div>
 <div class="frag-hint" id="fraghint"></div>
-<div class="notes-panel" id="notesPanel">
-  <div class="notes-panel-head">
-    <span class="notes-panel-title"><span id="notesSlideLabel">Slide 1 / 40</span> - my speaker notes</span>
-    <button id="notesCloseBtn" aria-label="Close notes" class="notes-close">&times;</button>
-  </div>
-  <textarea id="notesTextarea" class="notes-textarea" placeholder="Type your own notes for this slide here. Saved automatically in this browser, per slide." spellcheck="true"></textarea>
-  <div class="notes-panel-warn">Heads up: this panel lives on the same page as your slides. If you share your entire tab or window while it is open, your audience will see it too - there is no way for a webpage to hide part of itself from tab/window screen-share. Keep it closed while presenting, or share only a cropped region that excludes it.</div>
-</div>
 <script>
 (function(){
   const slides=Array.from(document.querySelectorAll('.slide'));
@@ -2406,32 +2386,62 @@ It&#x27;s about being seen for the right value.
     drawBars(slides[i]);
     const total=slides[i].querySelectorAll('.frag').length;
     frag=showAll?total:0;showFrags(frag);
-    loadNotesForSlide(i);}
+    updateNotesWindow();}
   function go(i,showAll){cur=Math.max(0,Math.min(N-1,i));activate(cur,showAll);}
   function next(){const total=fragEls().length;if(frag<total){frag++;showFrags(frag);}else go(cur+1,false);}
   function prev(){if(frag>0){frag--;showFrags(frag);}else go(cur-1,true);}
-  // On-page speaker notes: your own notes, saved locally in this browser
-  // (localStorage), editable per slide. The panel is hidden by default and
-  // toggles with N or the Notes button. IMPORTANT LIMITATION: this panel is
-  // part of the same page - if you share your whole tab/window while it is
-  // open, your audience will see it too. There is no standard web technique
-  // that hides part of a page from tab/window capture while keeping it visible
-  // to you; that is why tools like PowerPoint/Google Slides use a genuinely
-  // separate window for presenter view. Practical ways to keep it presenter-only:
-  //  1. Keep the panel closed while live; open it only in brief moments, or
-  //  2. If your conferencing app supports "share a portion of the screen",
-  //     select just the slide area and keep this panel positioned outside it.
+  // Speaker notes: your own notes, typed into a genuinely separate browser
+  // window so they never appear on the shared screen. This popup is not part
+  // of the slide page - if you only share the main tab/window (not "entire
+  // screen"), this window stays off the shared surface. Kept deliberately
+  // undiscoverable on screen: no visible button, opened only by triple-clicking
+  // anywhere on the deck (single/double clicks still navigate normally).
   const NOTES_KEY='ikDeckSpeakerNotes';
   function loadAllNotes(){try{return JSON.parse(localStorage.getItem(NOTES_KEY)||'{}');}catch(e){return {};}}
   function saveNoteForSlide(i,text){const all=loadAllNotes();all[i]=text;try{localStorage.setItem(NOTES_KEY,JSON.stringify(all));}catch(e){}}
-  function loadNotesForSlide(i){const ta=document.getElementById('notesTextarea');if(!ta)return;const all=loadAllNotes();ta.value=all[i]||'';const lbl=document.getElementById('notesSlideLabel');if(lbl)lbl.textContent='Slide '+(i+1)+' / '+N;}
-  function toggleNotesPanel(){const panel=document.getElementById('notesPanel');if(!panel)return;const willShow=!panel.classList.contains('open');panel.classList.toggle('open');if(willShow)loadNotesForSlide(cur);}
-  const notesTa=document.getElementById('notesTextarea');
-  if(notesTa)notesTa.addEventListener('input',()=>saveNoteForSlide(cur,notesTa.value));
-  const notesCloseBtn=document.getElementById('notesCloseBtn');
-  if(notesCloseBtn)notesCloseBtn.onclick=()=>toggleNotesPanel();
-  const notesBtnEl=document.getElementById('notesBtn');
-  if(notesBtnEl)notesBtnEl.onclick=()=>toggleNotesPanel();
+  let notesWin=null;
+  function updateNotesWindow(){
+    if(notesWin&&!notesWin.closed){
+      const doc=notesWin.document;
+      const ta=doc.getElementById('notesTextarea');
+      const lbl=doc.getElementById('notesSlideLabel');
+      const cnt=doc.getElementById('npcount');
+      if(ta){ta.dataset.idx=cur;ta.value=loadAllNotes()[cur]||'';}
+      if(lbl)lbl.textContent='Slide '+(cur+1)+' / '+N;
+      if(cnt)cnt.textContent=(cur+1)+' / '+N;
+    }
+  }
+  function openNotesWindow(){
+    if(notesWin&&!notesWin.closed){notesWin.focus();updateNotesWindow();return;}
+    notesWin=window.open('','ikPresenterNotes','width=440,height=640,left=80,top=80');
+    if(!notesWin){alert('Please allow pop-ups to open speaker notes.');return;}
+    notesWin.document.open();
+    notesWin.document.write('<!doctype html><html><head><meta charset="utf-8"><title>Speaker Notes</title><style>'
+      +'*{box-sizing:border-box}body{margin:0;background:#12141C;min-height:100vh;font-family:Inter,Arial,sans-serif;display:flex;flex-direction:column}'
+      +'.topbar{padding:12px 18px;border-bottom:1px solid #262A38;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}'
+      +'.topbar b{font-family:\'Space Grotesk\',sans-serif;color:#fff;font-size:13px}'
+      +'.warn{color:#D8A34D;font-size:10.5px;font-family:Inter,sans-serif;text-align:right;max-width:190px;line-height:1.3}'
+      +'#notesTextarea{flex:1;min-height:200px;resize:none;background:#181B26;border:none;color:#E8EAF0;font-family:Inter,Arial,sans-serif;font-size:14.5px;line-height:1.6;padding:18px 20px;outline:none}'
+      +'#notesTextarea::placeholder{color:#5B6178}'
+      +'.ctrls{display:flex;gap:8px;align-items:center;justify-content:space-between;padding:14px 20px;border-top:1px solid #262A38;flex-shrink:0}'
+      +'button{background:#20232F;border:1px solid #333849;color:#E8EAF0;border-radius:8px;padding:9px 16px;font-family:\'Space Grotesk\',sans-serif;font-size:13px;font-weight:600;cursor:pointer}'
+      +'button:hover{border-color:#5B6178}'
+      +'#npcount{font-family:\'Space Grotesk\',sans-serif;color:#7C8199;font-size:12px}'
+      +'</style></head><body>'
+      +'<div class="topbar"><b id="notesSlideLabel">Slide 1 / '+N+'</b><span class="warn">Presenter only - do not share this window</span></div>'
+      +'<textarea id="notesTextarea" placeholder="Type your own notes for this slide. Saved automatically, per slide." spellcheck="true"></textarea>'
+      +'<div class="ctrls"><button id="npPrev">&lsaquo; Prev</button><span id="npcount"></span><button id="npNext">Next &rsaquo;</button></div>'
+      +'</body></html>');
+    notesWin.document.close();
+    const ta=notesWin.document.getElementById('notesTextarea');
+    ta.dataset.idx=cur;ta.value=loadAllNotes()[cur]||'';
+    ta.addEventListener('input',()=>saveNoteForSlide(parseInt(ta.dataset.idx,10),ta.value));
+    const npPrev=notesWin.document.getElementById('npPrev');
+    const npNext=notesWin.document.getElementById('npNext');
+    if(npPrev)npPrev.onclick=function(){prev();};
+    if(npNext)npNext.onclick=function(){next();};
+    updateNotesWindow();
+  }
   document.getElementById('next').onclick=()=>next();
   document.getElementById('prev').onclick=()=>prev();
   document.addEventListener('keydown',e=>{
@@ -2440,10 +2450,26 @@ It&#x27;s about being seen for the right value.
     if(e.key==='ArrowRight'||e.key===' '||e.key==='PageDown'){e.preventDefault();next();}
     else if(e.key==='ArrowLeft'||e.key==='PageUp'){e.preventDefault();prev();}
     else if(e.key==='Home'){go(0,false);}else if(e.key==='End'){go(N-1,false);}
-    else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen&&document.exitFullscreen();}
-    else if(e.key==='n'||e.key==='N'){toggleNotesPanel();}
-    else if(e.key==='Escape'){const panel=document.getElementById('notesPanel');if(panel&&panel.classList.contains('open'))toggleNotesPanel();}});
-  document.getElementById('deck').addEventListener('click',e=>{if(e.target.closest('button')||e.target.closest('.calc')||e.target.closest('input'))return;const x=e.clientX/window.innerWidth;if(x>0.64)next();else if(x<0.36)prev();});
+    else if(e.key==='f'||e.key==='F'){if(!document.fullscreenElement)document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();else document.exitFullscreen&&document.exitFullscreen();}});
+  // Triple-click anywhere on the deck opens speaker notes; single/double
+  // clicks still navigate as before. A short window after each click waits
+  // to see if 2 more follow before committing to normal navigation.
+  let clickBuf=[],clickTimer=null;
+  document.getElementById('deck').addEventListener('click',e=>{
+    if(e.target.closest('button')||e.target.closest('.calc')||e.target.closest('input')||e.target.closest('textarea'))return;
+    clickBuf.push(e.clientX);
+    clearTimeout(clickTimer);
+    if(clickBuf.length>=3){
+      clickBuf=[];
+      openNotesWindow();
+      return;
+    }
+    clickTimer=setTimeout(()=>{
+      const x=clickBuf[0]/window.innerWidth;
+      clickBuf=[];
+      if(x>0.64)next();else if(x<0.36)prev();
+    },380);
+  });
 
   // ---- interactive salary explorer ----
   function fmtLPA(lo,hi){return '\u20b9'+lo+'-'+hi+' LPA';}
