@@ -1474,6 +1474,36 @@ body:has(.slide-perpost.active) .design-layer,body:has(.slide-perpost.active) .g
 .prem-btext b,.prem-btext .prem-hl{color:var(--pp);font-weight:700}
 .prem-bdeco{flex-shrink:0;opacity:.85}
 @media (max-width:900px){.prem-grid{grid-template-columns:1fr}.prem-top{flex-direction:column}}
+.tk-grid{display:grid;grid-template-columns:0.82fr 1.18fr;gap:30px;align-items:center}
+.tk-cover{background:linear-gradient(160deg,#0C131C,#05080D);border-radius:22px;padding:36px 32px;box-shadow:0 30px 60px -20px rgba(0,0,0,.42);position:relative;overflow:hidden;aspect-ratio:4/3.4;display:flex;flex-direction:column;justify-content:space-between}
+.tk-cover-dots{position:absolute;top:16px;right:18px;width:60px;height:60px;opacity:.5}
+.tk-cover-dots svg{width:100%;height:100%}
+.tk-cover-top{display:flex;align-items:center;gap:9px;position:relative;z-index:1}
+.tk-cover-dot{width:8px;height:8px;background:#37E6D6;border-radius:50%;box-shadow:0 0 14px 3px rgba(55,230,214,.6);flex-shrink:0}
+.tk-cover-eyebrow{font-family:'JetBrains Mono',monospace;font-size:9.5px;letter-spacing:.12em;color:#8EA2AA;text-transform:uppercase}
+.tk-cover-title{font-family:'Space Grotesk';font-weight:700;font-size:clamp(27px,3.1vw,37px);line-height:1.08;color:#F2F6F7;margin-top:18px;position:relative;z-index:1}
+.tk-cover-title .g{color:#37E6D6}
+.tk-cover-sub{font-family:'Inter';font-size:11.5px;line-height:1.5;color:#7C8E96;margin-top:10px;max-width:34ch;position:relative;z-index:1}
+.tk-cover-foot{font-family:'JetBrains Mono',monospace;font-size:8.5px;letter-spacing:.08em;color:#4B5C64;text-transform:uppercase;display:flex;justify-content:space-between;position:relative;z-index:1}
+.tk-cover-pages{font-family:'Space Grotesk';font-size:10.5px;font-weight:700;color:#37E6D6}
+.tk-h1{font-family:'Space Grotesk';font-weight:800;font-size:clamp(30px,3.7vw,46px);color:var(--ink);line-height:1.12}
+.tk-hl{color:var(--accent);transition:color 1s}
+.tk-sub{color:var(--muted);font-size:clamp(15px,1.6vw,18.5px);line-height:1.5;margin-top:12px;max-width:62ch;font-weight:500}
+.tk-chapters{display:grid;grid-template-columns:1fr 1fr;gap:11px 24px;margin-top:20px}
+.tk-chapter{display:flex;align-items:flex-start;gap:9px;font-size:14.5px;color:var(--ink);font-weight:500;line-height:1.35}
+.tk-chapter svg{width:15px;height:15px;margin-top:2px;stroke:var(--accent);flex-shrink:0;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;transition:stroke 1s}
+.tk-tags{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
+.tk-tag{background:var(--accent-soft);color:var(--accent);border:1px solid var(--line);border-radius:16px;padding:6px 15px;font-size:12.5px;font-weight:600;font-family:'Space Grotesk';transition:color 1s,background 1s}
+.tk-banner{margin-top:18px;background:var(--accent-soft);border-radius:14px;padding:14px 22px;display:flex;align-items:center;gap:13px;transition:background 1s}
+.tk-bannericon{width:36px;height:36px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px -4px rgba(20,26,44,.2)}
+.tk-bannericon svg{width:18px;height:18px;stroke:var(--accent);fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round;transition:stroke 1s}
+.tk-bannertext{font-size:14.5px;color:var(--ink);font-weight:500}
+.tk-bannertext b{color:var(--accent);font-weight:700;transition:color 1s}
+@media (max-width:900px){.tk-grid{grid-template-columns:1fr}.tk-chapters{grid-template-columns:1fr}}
+.cover-bonus{display:inline-flex;align-items:center;gap:11px;margin-top:24px;background:var(--accent-soft);border:1px solid var(--line);border-radius:14px;padding:11px 20px;font-size:14.5px;color:var(--ink);font-weight:500;transition:background 1s}
+.cover-bonus b{color:var(--accent);font-weight:700;transition:color 1s}
+.cover-bonus-icon{width:30px;height:30px;border-radius:50%;background:#fff;display:flex;align-items:center;justify-content:center;flex-shrink:0;box-shadow:0 4px 10px -4px rgba(20,26,44,.2)}
+.cover-bonus-icon svg{width:16px;height:16px;stroke:var(--accent);fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round;transition:stroke 1s}
 </style></head>
 <body>
 <div class="ambient"></div><div class="grid-bg"></div>
@@ -1497,6 +1527,7 @@ body:has(.slide-perpost.active) .design-layer,body:has(.slide-perpost.active) .g
           <li><span class="tick ok">✓</span><span>Build <b class="accentword">recruiter-ready, real-world projects</b></span></li>
           <li><span class="tick ok">✓</span><span>Demonstrate the <b class="accentword">expertise hiring managers look for</b> in today&#x27;s AI era</span></li>
         </ul>
+        <div class="cover-bonus reveal" style="transition-delay:.6s"><span class="cover-bonus-icon"><svg viewBox="0 0 24 24"><path d="M20 12v9H4v-9"/><path d="M2 7h20v5H2z"/><path d="M12 22V7"/><path d="M12 7H7.5a2.5 2.5 0 0 1 0-5C11 2 12 7 12 7z"/><path d="M12 7h4.5a2.5 2.5 0 0 0 0-5C13 2 12 7 12 7z"/></svg></span><span><b>Webinar Takeaway:</b> The Applied Agentic AI Playbook, a 27-page guide on building, shipping and interviewing with AI in 2026</span></div>
       </div>
       <div class="cover-art reveal" style="transition-delay:.5s" aria-hidden="true">
         <svg class="cover-constellation" viewBox="0 0 480 480" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -2559,6 +2590,33 @@ It&#x27;s about being seen for the right value.
         </div>
         <div class="wn-bottom reveal" style="transition-delay:.58s"><span class="wn-clock"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l4 2"/></svg></span><p class="sub" style="margin:0">The next cohort starts soon and seats are limited. Start now, <span class="lede-hl">be interview-ready</span> for the next wave of AI hiring.</p></div></div>
 </section>
+<section class="slide slide-takeaway" data-sec="5">
+<div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Your free takeaway</span></div>
+        <div class="tk-grid" style="margin-top:16px">
+          <div class="tk-cover reveal" style="transition-delay:.15s">
+            <svg class="tk-cover-dots" viewBox="0 0 60 60"><g fill="#37E6D6"><circle cx="4" cy="4" r="1.4"/><circle cx="16" cy="4" r="1.4"/><circle cx="28" cy="4" r="1.4"/><circle cx="4" cy="16" r="1.4"/><circle cx="16" cy="16" r="1.4"/><circle cx="4" cy="28" r="1.4"/></g></svg>
+            <div class="tk-cover-top"><span class="tk-cover-dot"></span><span class="tk-cover-eyebrow">A field guide for software engineers &middot; 2026</span></div>
+            <div class="tk-cover-title">The Applied<br>Agentic AI <span class="g">Playbook</span></div>
+            <div class="tk-cover-sub">How working engineers, not researchers, build, ship and interview with AI agents in 2026.</div>
+            <div class="tk-cover-foot"><span>Interview Kickstart &times; Talent500</span><span class="tk-cover-pages">27 pages</span></div>
+          </div>
+          <div>
+            <h1 class="tk-h1 reveal" style="transition-delay:.2s">Keep <span class="tk-hl">The Applied Agentic AI Playbook</span></h1>
+            <p class="tk-sub reveal" style="transition-delay:.26s">A 27-page field guide on how working engineers, not researchers, are building, shipping and interviewing with AI agents in 2026. No theory. No hype. Just the new baseline.</p>
+            <div class="tk-chapters reveal" style="transition-delay:.32s">
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>How the agentic AI shift is actually changing software engineering</div>
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>The new engineering stack: prompting, RAG, agents, evaluation and deployment</div>
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Real-world use cases, including one agent built start to finish</div>
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Common mistakes engineers make, and what recruiters look for instead</div>
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Projects worth building for your own portfolio</div>
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>A roadmap from beginner to career-ready, and the skills that matter through 2026+</div>
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>Where compensation and career opportunities are heading</div>
+              <div class="tk-chapter"><svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>How the Applied AI Accelerator turns this into your next step</div>
+            </div>
+            <div class="tk-banner reveal" style="transition-delay:.38s"><span class="tk-bannericon"><svg viewBox="0 0 24 24"><path d="M12 15V3M8 11l4 4 4-4"/><path d="M4 17v3a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-3"/></svg></span><span class="tk-bannertext">Sent to <b>your registered email within an hour</b> of this session, no extra step needed.</span></div>
+          </div>
+        </div></div>
+</section>
 <section class="slide slide-next-steps" data-sec="5">
 <div class="slide-inner"><div class="eyebrow reveal"><span class="dot"></span><span class="phase">Your next steps</span></div>
         <h1 class="display reveal" style="transition-delay:.1s">One conversation gets you started</h1>
@@ -2584,7 +2642,7 @@ It&#x27;s about being seen for the right value.
 </section>
 </div>
 <div class="spine" id="spine"></div>
-<div class="nav"><span class="count"><b id="cur">1</b> / 39</span>
+<div class="nav"><span class="count"><b id="cur">1</b> / 40</span>
 <button id="prev" aria-label="Previous">‹</button><button id="next" aria-label="Next">›</button></div>
 <div class="hint"><span class="kbd">←</span><span class="kbd">→</span> navigate · <span class="kbd">F</span> fullscreen</div>
 <div class="frag-hint" id="fraghint"></div>
@@ -2593,7 +2651,7 @@ It&#x27;s about being seen for the right value.
   const slides=Array.from(document.querySelectorAll('.slide'));
   const N=slides.length;let cur=0,frag=0;
   const SECCOL={"0": "#2563EB", "1": "#DC2626", "2": "#D97706", "3": "#059669", "4": "#7C3AED", "5": "#EA580C"}, SECSOFT={"0": "rgba(37,99,235,.10)", "1": "rgba(220,38,38,.09)", "2": "rgba(217,119,6,.10)", "3": "rgba(5,150,105,.10)", "4": "rgba(124,58,237,.10)", "5": "rgba(234,88,12,.10)"};
-  const secOf=[0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 0, 0, 0];
+  const secOf=[0, 0, 0, 1, 1, 1, 1, 1, 1, 2, 2, 2, 2, 2, 2, 2, 3, 3, 3, 3, 3, 3, 4, 4, 4, 4, 4, 4, 4, 4, 5, 5, 5, 5, 5, 5, 5, 0, 0, 0];
   const sections=[['1','AI Moment'],['2','Reality Check'],['3','IK Advantage'],['4','Your Path'],['5','Get Started']];
   const pb=document.getElementById('phasebar');
   sections.forEach(([n,nm])=>{const e=document.createElement('span');e.className='pl';e.dataset.s=n;e.textContent=n+' '+nm;pb.appendChild(e);});
