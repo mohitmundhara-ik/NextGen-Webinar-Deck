@@ -2737,7 +2737,7 @@ It&#x27;s about being seen for the right value.
     'Now let\'s actually open this up, this part is genuinely yours. Drop your questions in the Q&A box, or raise your hand. The market, the program, EMI and scholarships, your specific career situation, nothing\'s off limits here.\n\nWhile those come in, let me answer a couple I get constantly, "do I need prior AI experience?" No, that\'s exactly what Week 0 and the whole structure are built for. "What if I miss a live session?" Every class is recorded with lifetime access, so you\'re covered. Keep the questions coming.',
     'Thank you so much for spending this time with me today, I genuinely appreciate it. Let\'s go build your career roadmap together.\n\nIf you take one single action after this call ends, make it the Program Advisor call, that\'s the one step that turns everything we talked about today into an actual plan. You\'ll find the link on screen and in the chat. Take care of yourself, and I really hope to see you in the next cohort.'
   ];
-  function getNoteForSlide(i){const all=loadAllNotes();return (all[i]!==undefined)?all[i]:(DEFAULT_NOTES[i]||'');}
+  function getNoteForSlide(i){const all=loadAllNotes();const saved=all[i];return (saved!==undefined&&saved.trim()!=='')?saved:(DEFAULT_NOTES[i]||'');}
   function loadPrefs(){try{return Object.assign({theme:'dark',fontSize:14.5,speed:1},JSON.parse(localStorage.getItem(NOTES_PREF_KEY)||'{}'));}catch(e){return {theme:'dark',fontSize:14.5,speed:1};}}
   function savePrefs(p){try{localStorage.setItem(NOTES_PREF_KEY,JSON.stringify(p));}catch(e){}}
   let notesWin=null;
